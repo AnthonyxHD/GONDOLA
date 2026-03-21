@@ -26,9 +26,7 @@
 
     <!-- Line-Up Section -->
     <section class="lineup">
-        <!-- Line-Up Titel -->
-        <h2 class="lineup-title">Line-Up 2026</h2>
-        
+                
         <!-- Auflistung der Artists -->
         <div class="lineup-artists">
             <!-- Headliners -->
@@ -42,7 +40,9 @@
             </div>
 
             <!-- Weitere Acts -->
-            <div class="lineup-divider"></div>
+            <div class="lineup-divider">
+                <span>✦</span>
+            </div>
 
             <div class="lineup-label lineup-label--more">Weitere Acts</div>
             <div class="lineup-tier">
@@ -58,7 +58,7 @@
         </div>
 
         <!-- Hinweis zu Acts -->
-        <p class="lineup-tba">& viele mehr — weitere Acts folgen bald. <span>Stay tuned.</span></p>
+        <p class="lineup-tba">& viele mehr — weitere Acts folgen bald.<br><span class="tba-pulse">★ Stay tuned ★</span></p>
     </section>
 
 
@@ -74,5 +74,25 @@
             </svg>
         </div>
     </section>
+
+
+
+
+    <script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.transitionDelay = (entry.target.dataset.delay || 0) + 'ms';
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.lineup-headliner, .lineup-artist').forEach((el, i) => {
+        el.dataset.delay = i * 80;
+        observer.observe(el);
+    });
+</script>
 </body>
 </html>
