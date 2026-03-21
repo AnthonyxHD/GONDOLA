@@ -261,3 +261,167 @@ body {
         height: 20px;
     }
 }
+
+/* ============================================
+   LINE-UP SECTION
+   ============================================ */
+
+.lineup {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 40px;
+    overflow: hidden;
+}
+
+.lineup-title {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    color: #107DFE;
+    margin-bottom: 48px;
+    letter-spacing: -0.5px;
+    text-align: center;
+}
+
+.lineup-artists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    gap: 4px;
+}
+
+.lineup-label {
+    font-size: clamp(11px, 1.2vw, 13px);
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.3);
+    margin-bottom: 8px;
+    margin-top: 8px;
+    align-self: center;
+}
+
+.lineup-label--more {
+    margin-top: 8px;
+}
+
+.lineup-tier {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: 0 4vw; /* Dynamischer Gap statt fixer Wert */
+    width: 100%;
+    min-width: 0;
+    overflow: visible; /* War: hidden – versteckte den Bug statt ihn zu lösen */
+}
+
+.lineup-tier--top {
+    justify-content: center;
+}
+
+.lineup-headliner {
+    font-size: clamp(24px, 5.5vw, 110px); /* vw-Wert kleiner damit nichts rausläuft */
+    font-weight: 900;
+    line-height: 1;
+    color: #FF2D78;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+    cursor: default;
+    white-space: nowrap;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.lineup-headliner:hover {
+    color: #ffffff;
+    -webkit-text-stroke: 3px #FF2D78;
+}
+
+.lineup-artist {
+    font-size: clamp(14px, 3vw, 56px); /* clamp beginnt kleiner damit sie nebeneinander passen */
+    font-weight: 900;
+    line-height: 1;
+    color: #FF2D78;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding: 6px 0;
+    transition: color 0.2s ease;
+    cursor: default;
+    opacity: 0.65;
+    white-space: nowrap;
+    flex-shrink: 1;
+}
+
+.lineup-artist:hover {
+    opacity: 1;
+    color: #ffffff;
+    -webkit-text-stroke: 2px #FF2D78;
+}
+
+.lineup-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 45, 120, 0.15);
+    margin: 24px 0;
+}
+
+.lineup-tba {
+    margin-top: 40px;
+    font-size: clamp(13px, 1.8vw, 17px);
+    font-weight: 500;
+    color: #666666;
+    text-align: center;
+    letter-spacing: 0.2px;
+}
+
+.lineup-tba span {
+    color: #FF2D78;
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lineup {
+        padding: 60px 24px;
+    }
+
+    .lineup-headliner {
+        letter-spacing: -1px;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .lineup-artist {
+        white-space: normal;
+        text-align: center;
+    }
+
+    .lineup-tier {
+        gap: 0 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lineup {
+        padding: 40px 16px;
+    }
+
+    .lineup-tier {
+        flex-wrap: wrap; /* Erst bei sehr kleinen Screens umbrechen */
+        justify-content: center;
+        gap: 0 16px;
+    }
+
+    .lineup-headliner:hover,
+    .lineup-artist:hover {
+        -webkit-text-stroke: 1.5px #FF2D78;
+    }
+}
