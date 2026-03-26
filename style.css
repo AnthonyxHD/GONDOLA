@@ -19,6 +19,12 @@ body {
     color: #0d0d0d;
 }
 
+
+@font-face {
+    font-family: "please-vf", sans-serif;
+    font-variation-settings: "wght" 300;
+}
+
 /* ============================================
    HERO SECTION (Partnerin – unverändert)
    ============================================ */
@@ -30,7 +36,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: #107DFE;
+    background-color: #1AA5D9;
 }
 
 .hero-info {
@@ -69,13 +75,14 @@ body {
 }
 
 .hero-title {
+    font-family: please-vf;
     position: absolute;
     top: 0;
     line-height: 1;
     font-size: var(--font-size);
     font-weight: 900;
     letter-spacing: -2px;
-    color: #ffffff;
+    color: #FE41DB;
     text-align: center;
     white-space: nowrap;
 }
