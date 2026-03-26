@@ -624,3 +624,130 @@ body {
 @media (max-width: 360px) {
     .hero { min-height: 350px; }
 }
+
+
+
+
+
+
+/* ============================================
+   SCROLL-HINWEIS SECTION
+   ============================================ */
+
+.scroll-hint {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    text-align: center;
+    z-index: 10;
+}
+
+.scroll-hint h2 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    color: #107DFE;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.scroll-hint p {
+    font-size: clamp(14px, 2vw, 20px);
+    color: #666666;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.scroll-arrow {
+    margin-top: 20px;
+    color: #107DFE;
+    animation: bounceArrow 2s infinite;
+}
+
+.scroll-arrow svg {
+    display: block;
+}
+
+@keyframes bounceArrow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* ============================================
+   ANIMATION & EFFECTS
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* .hero-info {
+    animation: fadeIn 1s ease-out 0.3s both;
+} */
+
+/* .hero-title {
+    animation: fadeIn 1s ease-out 0.6s both;
+} */
+
+.hero-mountain {
+    animation: fadeIn 1.2s ease-out 0.9s both;
+}
+
+/* ============================================
+   RESPONSIVENESS FOR SCROLL-HINT SECTION
+   ============================================ */
+
+@media (max-width: 768px) {
+    .scroll-hint {
+        min-height: 80vh;
+        padding: 40px 20px;
+    }
+
+    .scroll-hint h2 {
+        font-size: clamp(24px, 4vw, 40px);
+    }
+
+    .scroll-hint p {
+        font-size: clamp(13px, 1.8vw, 18px);
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-hint {
+        min-height: 70vh;
+        padding: 30px 16px;
+    }
+
+    .scroll-hint h2 {
+        margin-bottom: 12px;
+    }
+
+    .scroll-hint p {
+        margin-bottom: 30px;
+    }
+
+    .scroll-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+}
