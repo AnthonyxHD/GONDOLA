@@ -10,11 +10,12 @@ html, body {
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
 
 body {
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #A8D8FF;
     color: #0d0d0d;
 }
 
@@ -93,17 +94,37 @@ body {
 /* ============================================
    LINE-UP BLOCK
    ============================================ */
+.lineup-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(32px, 5vh, 72px) 24px;
+}
+
 
 .lineup-block {
-    padding-top: 80px;
+    width: 100%;
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .lineup-artists {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
+    max-width: min(1400px, 100%);
     gap: 4px;
+    text-align: center;
+}
+
+.lineup-artists > h1 {
+    text-align: center;
+    margin-bottom: clamp(16px, 2vh, 28px);
 }
 
 .lineup-group {
