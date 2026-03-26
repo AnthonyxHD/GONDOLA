@@ -5,94 +5,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GONDOLA - Musikfestival auf dem Säntis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;0,900;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Hero Section -->
+
+    <!-- ═══════════════════════════════════════
+         HERO SECTION 
+         ═══════════════════════════════════════ -->
     <section class="hero">
-        <!-- Zusatzinformationen oben -->
         <div class="hero-info">
             <p class="hero-subtitle">Musikfestival auf dem Säntis</p>
             <p class="hero-date">22. August 2026</p>
         </div>
-
-        <!-- Berg-Bild (überlagert den Titel) -->
         <div class="hero-content">
             <h1 class="hero-title">GONDOLA</h1>
             <img src="images/Albula_Alps.png" alt="Albula Alps - Berg" class="mountain-image">
         </div>
     </section>
 
-    <!-- Line-Up Section -->
-    <section class="lineup">
-                
-        <!-- Auflistung der Artists -->
-        <div class="lineup-artists">
-            <!-- Headliners -->
-            <div class="lineup-label">Headliners</div>
-            <div class="lineup-tier lineup-tier--top">
-                <div class="lineup-headliner">Charlotte de Witte</div>
+
+    <!-- LINEUP -->
+    <section>
+        <div class="lineup-block">
+            <div class="lineup-artists">
+                <!-- Titel -->
+                <h1>Line-Up 2026</h1>
+
+                <!-- Main Artists -->
+                <div class="lineup-group">
+                    <div class="lineup-tier">
+                        <div class="lineup-headliner">Charlotte de Witte</div>
+                    </div>
+                    <div class="lineup-tier">
+                        <div class="lineup-headliner">Fisher</div>
+                        <div class="lineup-headliner">Dua Lipa</div>
+                    </div>
+                </div>
+
+                <!-- Weitere Acts-->
+                <div class="lineup-group">
+                    <span class="lineup-tag">Weitere Acts</span>
+                    <div class="lineup-tier">
+                        <div class="lineup-artist">Peggy Gou</div>
+                        <div class="lineup-artist">Meduza</div>
+                        <div class="lineup-artist">Solomun</div>
+                    </div>
+                    <div class="lineup-tier">
+                        <div class="lineup-artist">Zara Larsson</div>
+                        <div class="lineup-artist">Tale Of Us</div>
+                    </div>
+                </div>
+
+                <!-- TBA-Artists-->
+                <p class="lineup-tba">& viele mehr — weitere Acts folgen bald.<br>
+                    <span class="tba-pulse">★ Stay tuned ★</span>
+                </p>
             </div>
-            <div class="lineup-tier">
-                <div class="lineup-headliner">Fisher</div>
-                <div class="lineup-headliner">Dua Lipa</div>
-            </div>
-
-            <!-- Weitere Acts -->
-            <div class="lineup-divider">
-                <span>✦</span>
-            </div>
-
-            <div class="lineup-label lineup-label--more">Weitere Acts</div>
-            <div class="lineup-tier">
-                <div class="lineup-artist">Peggy Gou</div>
-                <div class="lineup-artist">Meduza</div>
-                <div class="lineup-artist">Solomun</div>
-            </div>
-            <div class="lineup-tier">
-                <div class="lineup-artist">Zara Larsson</div>
-                <div class="lineup-artist">Tale Of Us</div>
-            </div>
-
-        </div>
-
-        <!-- Hinweis zu Acts -->
-        <p class="lineup-tba">& viele mehr — weitere Acts folgen bald.<br><span class="tba-pulse">★ Stay tuned ★</span></p>
-    </section>
-
-
-
-
-    <!-- Scroll-Hinweis Section -->
-    <section class="scroll-hint">
-        <h2>Erfahre mehr über GONDOLA</h2>
-        <p>Scroll für weitere Informationen</p>
-        <div class="scroll-arrow">
-            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M5 12l7 7 7-7"></path>
-            </svg>
         </div>
     </section>
 
+    <!-- Infos -->
+    <section class="info-section">
+        <div class="info-block" id="infoBlock">
+            <p class="info-eyebrow">Das Konzept</p>
+            <h2 class="info-title">Die Reise ist<br><em>ein Erlebnis.</em></h2>
+            <p class="info-text">
+                GONDOLA verbindet Festivalkultur mit alpinem Abenteuer. Auf dem Gipfel spielen die Headliner – aber schon die Fahrt nach oben ist Teil des Erlebnisses.
+            </p>
+            <p class="info-text">
+                Jede Gondel wird zur <strong>«Sky-Stage»</strong>: ein intimer, mobiler Konzertraum, gewidmet einem eigenen Genre. Steig ein, lehn dich zurück, und lass dich von Beats und Bergen tragen.
+            </p>
+        </div>
+    </section>
 
+    <!-- ── 3. DROPDOWNS ── -->
+    <section class="steps-section">
 
+        <div class="steps-inner">
+            <p class="steps-eyebrow">So funktioniert's</p>
+            <h2 class="steps-title">Dein Weg<br><em>zum Gipfel.</em></h2>
+
+            <div class="steps-list">
+
+                <div class="step step--yellow" data-step-delay="0">
+                    <button class="step-header" aria-expanded="false">
+                        <div class="step-badge">1</div>
+                        <span class="step-title">Talstation: Genre wählen</span>
+                        <span class="step-chevron">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="step-body">
+                        <p class="step-desc">An der Talstation kannst du deine Gondel wählen. Techno? Metal? 80s? Du entscheidest – und steigst direkt in dein Genre ein.</p>
+                    </div>
+                </div>
+
+                <div class="step step--pink" data-step-delay="100">
+                    <button class="step-header" aria-expanded="false">
+                        <div class="step-badge">2</div>
+                        <span class="step-title">Fahrt: Live Performance</span>
+                        <span class="step-chevron">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="step-body">
+                        <p class="step-desc">Während der Fahrt wird in deiner Gondel live performt. Intime Sets für 8–10 Personen, schwebend über den Alpen – das gibt's nirgendwo sonst.</p>
+                    </div>
+                </div>
+
+                <div class="step step--violet" data-step-delay="200">
+                    <button class="step-header" aria-expanded="false">
+                        <div class="step-badge">3</div>
+                        <span class="step-title">Gipfel: Main Stage</span>
+                        <span class="step-chevron">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="step-body">
+                        <p class="step-desc">Oben angekommen erwartet dich die Haupt-Bühne mit den Headlinern. Party auf 2'500m – mit dem besten Panorama der Schweiz.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.transitionDelay = (entry.target.dataset.delay || 0) + 'ms';
-                entry.target.classList.add('revealed');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || entry.target.dataset.stepDelay || 0;
+                    entry.target.style.animationDelay = delay + 'ms';
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
 
-    document.querySelectorAll('.lineup-headliner, .lineup-artist').forEach((el, i) => {
-        el.dataset.delay = i * 80;
-        observer.observe(el);
-    });
-</script>
+        document.querySelectorAll('.lineup-headliner, .lineup-artist').forEach((el, i) => {
+            el.dataset.delay = i * 80;
+            observer.observe(el);
+        });
+
+        document.querySelectorAll('.step').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Accordion
+        document.querySelectorAll('.step-header').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const step = btn.closest('.step');
+                const isOpen = step.classList.contains('open');
+                document.querySelectorAll('.step').forEach(s => {
+                    s.classList.remove('open');
+                    s.querySelector('.step-header').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    step.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+
+        // Info Block reveal
+        const infoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    infoObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('#infoBlock').forEach(el => infoObserver.observe(el));
+    </script>
+
 </body>
 </html>
