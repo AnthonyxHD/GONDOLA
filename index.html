@@ -7,8 +7,12 @@
     <title>GONDOLA - Musikfestival auf dem Säntis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;0,900;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ticket.css">
+
     <link rel="stylesheet" href="https://use.typekit.net/fze1rbx.css">
 </head>
 
@@ -75,16 +79,134 @@
         </div>
     </section>
 
- 
+    <section class="ticket-section">
+
+        <div class="ticket-inner">
+
+            <!-- Section header -->
+            <div class="ticket-header">
+                <p class="ticket-eyebrow">Dein Erlebnis wartet</p>
+                <h2 class="ticket-title">Tickets</h2>
+            </div>
+
+            <!-- Ticket card -->
+            <div class="ticket-card">
+
+                <!-- Left: Badge & Info -->
+                <div class="ticket-card__left">
+                    <div class="ticket-badge">General Entry</div>
+
+                    <div class="ticket-card__name">GONDOLA<br>Festival 2026</div>
+
+                    <ul class="ticket-perks">
+                        <li>
+                            <span class="perk-dot perk-dot--yellow"></span>
+                            Gondelfahrt mit Live-Performance
+                        </li>
+                        <li>
+                            <span class="perk-dot perk-dot--pink"></span>
+                            Main Stage auf dem Gipfel
+                        </li>
+                        <li>
+                            <span class="perk-dot perk-dot--green"></span>
+                            Freie Gondel-Wahl nach Genre
+                        </li>
+                        <li>
+                            <span class="perk-dot perk-dot--blue"></span>
+                            22. August 2026 · Säntis
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Perforated divider -->
+                <div class="ticket-divider" aria-hidden="true">
+                    <div class="ticket-divider__line"></div>
+                    <div class="ticket-notch ticket-notch--top"></div>
+                    <div class="ticket-notch ticket-notch--bottom"></div>
+                </div>
+
+                <!-- Right: Price & CTA -->
+                <div class="ticket-card__right">
+                    <div class="ticket-type-label">General Entry</div>
+
+                    <div class="ticket-price">
+                        <span class="ticket-price__currency">CHF</span>
+                        <span class="ticket-price__amount">120</span>
+                        <span class="ticket-price__period">/ Person</span>
+                    </div>
+
+                    <div class="ticket-date-chip">22. AUG 2026</div>
+
+                    <a href="#" class="ticket-btn" aria-label="Tickets kaufen">
+                        <svg class="ticket-btn__svg" viewBox="0 0 260 80" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Pill body -->
+                            <rect class="ticket-btn__shape" x="0" y="10" width="250" height="58" rx="29" />
+                            <!-- Blob oben rechts -->
+                            <circle class="ticket-btn__shape" cx="238" cy="10" r="15" />
+                            <!-- Blob unten links -->
+                            <circle class="ticket-btn__shape" cx="22" cy="70" r="10" />
+                            <!-- Label -->
+                            <text class="ticket-btn__label" x="122" y="42" text-anchor="middle"
+                                dominant-baseline="middle">Tickets kaufen</text>
+                        </svg>
+                    </a>
+
+                    <p class="ticket-fine">Limitierte Kontingente · Keine Rückerstattung</p>
+                </div>
+
+            </div>
+
+            <!-- Info strip -->
+            <div class="ticket-strip">
+                <div class="ticket-strip__item">
+                    <span class="ticket-strip__icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                    </span>
+                    Einlass ab 10:00 Uhr
+                </div>
+                <div class="ticket-strip__divider"></div>
+                <div class="ticket-strip__item">
+                    <span class="ticket-strip__icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </span>
+                    Talstation Schwägalp
+                </div>
+                <div class="ticket-strip__divider"></div>
+                <div class="ticket-strip__item">
+                    <span class="ticket-strip__icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" />
+                            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                        </svg>
+                    </span>
+                    Online-Ticket · PDF
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
     <section class="info-section">
         <div class="info-block" id="infoBlock">
             <p class="info-eyebrow">Das Konzept</p>
             <h2 class="info-title">Die Reise ist<br><em>ein Erlebnis.</em></h2>
             <p class="info-text">
-                GONDOLA verbindet Festivalkultur mit alpinem Abenteuer. Auf dem Gipfel spielen die Headliner – aber schon die Fahrt nach oben ist Teil des Erlebnisses.
+                GONDOLA verbindet Festivalkultur mit alpinem Abenteuer. Auf dem Gipfel spielen die Headliner – aber
+                schon die Fahrt nach oben ist Teil des Erlebnisses.
             </p>
             <p class="info-text">
-                Jede Gondel wird zur <strong>«Sky-Stage»</strong>: ein intimer, mobiler Konzertraum, gewidmet einem eigenen Genre. Steig ein, lehn dich zurück, und lass dich von Beats und Bergen tragen.
+                Jede Gondel wird zur <strong>«Sky-Stage»</strong>: ein intimer, mobiler Konzertraum, gewidmet einem
+                eigenen Genre. Steig ein, lehn dich zurück, und lass dich von Beats und Bergen tragen.
             </p>
         </div>
     </section>
@@ -104,12 +226,14 @@
                         <span class="step-title">Talstation: Genre wählen</span>
                         <span class="step-chevron">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
                             </svg>
                         </span>
                     </button>
                     <div class="step-body">
-                        <p class="step-desc">An der Talstation kannst du deine Gondel wählen. Techno? Metal? 80s? Du entscheidest – und steigst direkt in dein Genre ein.</p>
+                        <p class="step-desc">An der Talstation kannst du deine Gondel wählen. Techno? Metal? 80s? Du
+                            entscheidest – und steigst direkt in dein Genre ein.</p>
                     </div>
                 </div>
 
@@ -119,12 +243,14 @@
                         <span class="step-title">Fahrt: Live Performance</span>
                         <span class="step-chevron">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
                             </svg>
                         </span>
                     </button>
                     <div class="step-body">
-                        <p class="step-desc">Während der Fahrt wird in deiner Gondel live performt. Intime Sets für 8–10 Personen, schwebend über den Alpen – das gibt's nirgendwo sonst.</p>
+                        <p class="step-desc">Während der Fahrt wird in deiner Gondel live performt. Intime Sets für 8–10
+                            Personen, schwebend über den Alpen – das gibt's nirgendwo sonst.</p>
                     </div>
                 </div>
 
@@ -134,18 +260,20 @@
                         <span class="step-title">Gipfel: Main Stage</span>
                         <span class="step-chevron">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
                             </svg>
                         </span>
                     </button>
                     <div class="step-body">
-                        <p class="step-desc">Oben angekommen erwartet dich die Haupt-Bühne mit den Headlinern. Party auf 2'500m – mit dem besten Panorama der Schweiz.</p>
+                        <p class="step-desc">Oben angekommen erwartet dich die Haupt-Bühne mit den Headlinern. Party auf
+                            2'500m – mit dem besten Panorama der Schweiz.</p>
                     </div>
                 </div>
 
             </div>
         </div>
-    </section> 
+    </section>
 
 
 
@@ -157,12 +285,8 @@
                 <path d="M12 5v14M5 12l7 7 7-7"></path>
             </svg>
         </div>
-    </section> 
-
-
-    <section class="ticket">
-
     </section>
+
 
 
     <script>
@@ -180,6 +304,9 @@
 
         document.querySelectorAll('.lineup-headliner, .lineup-artist').forEach((el, i) => {
             el.dataset.delay = i * 80;
+            observer.observe(el);
+        });
+        document.querySelectorAll('.ticket-header, .ticket-card, .ticket-strip').forEach(el => {
             observer.observe(el);
         });
 
@@ -218,4 +345,5 @@
     </script>
 
 </body>
+
 </html>

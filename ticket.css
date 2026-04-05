@@ -1,0 +1,397 @@
+.ticket-section {
+    width: 100%;
+    min-height: 80vh;
+    background-color: #116EC2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(60px, 10vh, 120px) clamp(16px, 5vw, 80px);
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* ── Inner wrapper ── */
+.ticket-inner {
+    width: 100%;
+    max-width: 860px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Section header ── */
+.ticket-header {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: ticketReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+}
+
+.ticket-eyebrow {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 12px;
+}
+
+.ticket-title {
+    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 10vw, 120px);
+    font-weight: 500;
+    line-height: 1;
+    color: #FE41DB;
+    letter-spacing: -2px;
+}
+
+/* ── Ticket card ── */
+.ticket-card {
+    background: #ffffff;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    transform: translateY(32px);
+    animation: ticketReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+}
+
+/* LEFT panel */
+.ticket-card__left {
+    flex: 1 1 55%;
+    background: #0d0d0d;
+    padding: clamp(28px, 5vw, 48px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.ticket-badge {
+    display: inline-block;
+    background: #F8FF33;
+    color: #0d0d0d;
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    align-self: flex-start;
+}
+
+.ticket-card__name {
+    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 500;
+    line-height: 1.05;
+    color: #ffffff;
+    letter-spacing: -1px;
+}
+
+.ticket-perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.ticket-perks li {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: clamp(13px, 1.5vw, 16px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.4;
+}
+
+.perk-dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.perk-dot--yellow {
+    background: #F8FF33;
+}
+
+.perk-dot--pink {
+    background: #FE41DB;
+}
+
+.perk-dot--green {
+    background: #32F196;
+}
+
+.perk-dot--blue {
+    background: #1AA5D9;
+}
+
+/* Perforated divider */
+.ticket-divider {
+    width: 2px;
+    position: relative;
+    flex-shrink: 0;
+    background: repeating-linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.12) 0px,
+            rgba(0, 0, 0, 0.12) 8px,
+            transparent 8px,
+            transparent 16px);
+}
+
+.ticket-notch {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #116EC2;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.ticket-notch--top {
+    top: -14px;
+}
+
+.ticket-notch--bottom {
+    bottom: -14px;
+}
+
+/* RIGHT panel */
+.ticket-card__right {
+    flex: 0 0 auto;
+    width: clamp(180px, 38%, 280px);
+    background: #ffffff;
+    padding: clamp(28px, 5vw, 48px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ticket-type-label {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.35);
+}
+
+.ticket-fine {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.35);
+}
+
+.ticket-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    line-height: 1;
+}
+
+.ticket-price__currency {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #0d0d0d;
+}
+
+.ticket-price__amount {
+    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 72px);
+    font-weight: 500;
+    color: #0d0d0d;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.ticket-price__period {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.ticket-date-chip {
+    background: #116EC2;
+    color: #F8FF33;
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 6px 14px;
+    border-radius: 100px;
+}
+
+/* ── Blob button ── */
+.ticket-btn {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ticket-btn:hover {
+    transform: scale(1.06);
+    transition: all 0.2s ease-in-out;
+}
+
+.ticket-btn:active {
+    transform: scale(0.97);
+}
+
+.ticket-btn__svg {
+    display: block;
+    width: 210px;
+    height: auto;
+    overflow: visible;
+}
+
+.ticket-btn__shape {
+    fill: #FE41DB;
+    transition: fill 0.25s ease, filter 0.25s ease;
+}
+
+.ticket-btn:hover .ticket-btn__shape {
+    fill: #FE41DB;
+    filter: drop-shadow(0 0 3px #FE41DB) drop-shadow(0 0 7px #FE41DB);
+}
+
+.ticket-btn__label {
+    font-family: please-vf;
+    font-weight: light;
+    font-size: 24px;
+    font-weight: 400;
+    fill: #ffffff;
+    letter-spacing: 0.2px;
+    pointer-events: none;
+}
+
+/* ── Info strip ── */
+.ticket-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 18px 28px;
+    opacity: 0;
+    animation: ticketReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
+}
+
+.ticket-strip__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    flex: 1;
+    justify-content: center;
+}
+
+.ticket-strip__icon {
+    color: #F8FF33;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.ticket-strip__divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+}
+
+/* Statt animation: ticketReveal ... forwards → so: */
+.ticket-header,
+.ticket-card,
+.ticket-strip {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ticket-card {
+    transition-delay: 0.15s;
+}
+
+.ticket-strip {
+    transition-delay: 0.3s;
+}
+
+.ticket-header.revealed,
+.ticket-card.revealed,
+.ticket-strip.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .ticket-card {
+        flex-direction: column;
+    }
+
+    .ticket-divider {
+        width: 100%;
+        height: 2px;
+        background: repeating-linear-gradient(to right,
+                rgba(0, 0, 0, 0.12) 0px,
+                rgba(0, 0, 0, 0.12) 8px,
+                transparent 8px,
+                transparent 16px);
+    }
+
+    .ticket-notch--top {
+        top: 50%;
+        left: -14px;
+        transform: translateY(-50%);
+    }
+
+    .ticket-notch--bottom {
+        top: 50%;
+        right: -14px;
+        left: auto;
+        transform: translateY(-50%);
+    }
+
+    .ticket-card__right {
+        width: 100%;
+    }
+
+    .ticket-strip {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .ticket-strip__item {
+        justify-content: flex-start;
+    }
+
+    .ticket-strip__divider {
+        width: 100%;
+        height: 1px;
+    }
+}
