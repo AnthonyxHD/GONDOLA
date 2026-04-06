@@ -962,3 +962,70 @@ body {
         height: 20px;
     }
 }
+/* ===== WARENKORB ===== */
+
+.cart-icon {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    background: #107DFE;
+    color: white;
+
+    font-size: 20px;
+}
+
+.cart-icon span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+
+    min-width: 18px;
+    height: 18px;
+
+    background: #107DFE;
+    color: white;
+
+    font-size: 20px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart {
+    position: fixed;
+    top: 80px;
+    right: 24px;
+    z-index: 9999;
+
+    width: 260px;
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cart li {
+    padding: 6px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.hidden {
+    display: none;
+}

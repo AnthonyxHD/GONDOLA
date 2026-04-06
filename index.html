@@ -14,9 +14,19 @@
     <link rel="stylesheet" href="ticket.css">
 
     <link rel="stylesheet" href="https://use.typekit.net/fze1rbx.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
+
+       <div class="cart-icon" onclick="toggleCart()">
+    <i class="fa fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+</div>
+
+<div id="cart" class="cart hidden">
+    <ul id="cart-items"></ul>
+    </div>
 
     <!-- ═══════════════════════════════════════
          HERO SECTION 
