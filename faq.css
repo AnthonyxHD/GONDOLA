@@ -1,0 +1,311 @@
+/* ============================================
+   INFO BLOCK
+   ============================================ */
+
+.info-section {
+    width: 100%;
+    background-color: #FFF8F0;
+    display: flex;
+    justify-content: center;
+    padding: 120px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-block {
+    max-width: 860px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Titel */
+.info-title {
+    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 10vw, 120px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: #116EC2;
+    margin-bottom: 32px;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s;
+}
+
+.info-block.revealed .info-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.info-title em {
+    color: #116EC2;
+    transition: letter-spacing 0.4s ease, color 0.3s ease;
+    cursor: default;
+}
+
+.info-title em:hover {
+    letter-spacing: 2px;
+    color: #fe41db;
+}
+
+/* Schrift */
+.info-text {
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.75;
+    margin-bottom: 14px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.info-text:nth-of-type(1) {
+    transition-delay: 0.25s;
+}
+
+.info-text:nth-of-type(2) {
+    transition-delay: 0.38s;
+}
+
+.info-block.revealed .info-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.info-text strong {
+    color: #0d0d0d;
+    font-weight: 700;
+    position: relative;
+    cursor: default;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+/* Unterstrich-Wisch-Effekt auf «Sky-Stage» */
+.info-text strong::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: #fe41db;
+    transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.info-text strong:hover::after {
+    width: 100%;
+}
+
+.info-text strong:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .info-section {
+        padding: 80px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-section {
+        padding: 60px 16px;
+    }
+
+    .info-title {
+        letter-spacing: -1px;
+    }
+}
+
+
+/* Einführung */
+.info-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    /* Slide in von oben */
+    opacity: 0;
+    transform: translateY(-16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.info-block.revealed .info-eyebrow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Deko im Hintergrund */
+.info-section::before {
+    content: '🎵';
+    position: absolute;
+    font-size: 120px;
+    top: 20px;
+    left: 5%;
+    opacity: 0.4;
+    animation: floatNote 7s ease-in-out infinite;
+}
+
+@keyframes floatNote {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq-section {
+    width: 100%;
+    padding: clamp(40px, 8vh, 90px) clamp(16px, 5vw, 80px);
+}
+
+.faq-inner {
+    width: 100%;
+    max-width: 860px; /* gleiche Breite wie ticket-inner */
+    margin: 0 auto;
+}
+
+.faq-item {
+    width: 100%;
+}
+
+.faq-trigger {
+    width: 100%;
+    border: 0;
+    border-radius: 24px;
+    background: #F8FF33;
+    color: #0d0d0d;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-trigger__label {
+    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.faq-trigger__icon {
+    font-size: 24px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+.faq-item.open .faq-trigger__icon {
+    transform: rotate(180deg);
+}
+
+.faq-panel {
+    display: none;
+    background: #fffdf0;
+    border-radius: 0 0 24px 24px;
+    padding: 0 28px;
+}
+
+.faq-item.open .faq-panel {
+    display: block;
+    padding: 28px;
+}
+
+.faq-panel__content h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #116EC2;
+    margin-bottom: 10px;
+}
+
+.faq-panel__content h3:not(:first-child) {
+    margin-top: 26px;
+}
+
+.faq-panel__content p {
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.75;
+    color: rgba(0, 0, 0, 0.72);
+    max-width: 760px;
+}
+
+@media (max-width: 640px) {
+    .faq-trigger {
+        padding: 18px 20px;
+        border-radius: 20px;
+    }
+
+    .faq-item.open .faq-panel {
+        padding: 22px 20px;
+    }
+
+    .faq-trigger__label {
+        font-size: clamp(24px, 7vw, 34px);
+    }
+}
+
+
+
+.faq-trigger--blue {
+    background: #1AA5D9;
+    color: #ffffff;
+}
+
+.faq-panel--blue {
+    background: #eefaff;
+}
+
+.faq-panel--blue .faq-panel__content h3 {
+    color: #116EC2;
+}
+
+.faq-trigger--green {
+    background: #32F196;
+    color: #0d0d0d;
+}
+
+.faq-panel--green {
+    background: #effff8;
+}
+
+.faq-panel--green .faq-panel__content h3 {
+    color: #0d0d0d;
+}
+
+.faq-list {
+    margin-top: 18px;
+    padding-left: 20px;
+}
+
+.faq-list li {
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.72);
+    margin-bottom: 6px;
+}

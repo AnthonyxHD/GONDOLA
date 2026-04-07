@@ -11,8 +11,9 @@
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;0,900;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="ticket.css">
     <link rel="stylesheet" href="lineup.css">
+    <link rel="stylesheet" href="ticket.css">
+    <link rel="stylesheet" href="faq.css">
 
     <link rel="stylesheet" href="https://use.typekit.net/fze1rbx.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -71,11 +72,13 @@
                 <!-- Weitere Acts-->
                 <div class="lineup-group">
                     <span class="lineup-tag">Weitere Acts</span>
+                    <!-- Row 1 -->
                     <div class="lineup-tier">
                         <div class="lineup-artist">Peggy Gou</div>
                         <div class="lineup-artist">Tame Impala</div>
                         <div class="lineup-artist">Solomun</div>
                     </div>
+                    <!-- Row 2 -->
                     <div class="lineup-tier">
                         <div class="lineup-artist">Artic Monkeys</div>
                         <div class="lineup-artist">Blondie</div>
@@ -223,65 +226,255 @@
     </section>
 
 
-    <section class="steps-section">
+    <section class="faq-section">
+        <div class="faq-inner">
+            <!-- Item 1: Anfahrt-->
+            <div class="faq-item">
+                <button class="faq-trigger" type="button" aria-expanded="false">
+                    <span class="faq-trigger__label">Anfahrt</span>
+                    <span class="faq-trigger__icon" aria-hidden="true">↓</span>
+                </button>
 
-        <div class="steps-inner">
-            <p class="steps-eyebrow">So funktioniert's</p>
-            <h2 class="steps-title">Dein Weg<br><em>zum Gipfel.</em></h2>
+                <div class="faq-panel">
+                    <div class="faq-panel__content">
+                        <h3>Mit dem ÖV</h3>
+                        <p>
+                            Wir empfehlen die Anreise mit dem öffentlichen Verkehr bis zur Talstation Schwägalp.
+                            Ab St. Gallen und Herisau verkehren am Festivaltag zusätzliche Shuttle-Verbindungen,
+                            abgestimmt auf die ersten Einlasszeiten. Von der Haltestelle sind es nur wenige Minuten
+                            zu Fuss bis zum Festival-Eingang und zur Gondelstation.
+                        </p>
 
-            <div class="steps-list">
-
-                <div class="step step--yellow" data-step-delay="0">
-                    <button class="step-header" aria-expanded="false">
-                        <div class="step-badge">1</div>
-                        <span class="step-title">Talstation: Genre wählen</span>
-                        <span class="step-chevron">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="step-body">
-                        <p class="step-desc">An der Talstation kannst du deine Gondel wählen. Techno? Metal? 80s? Du
-                            entscheidest – und steigst direkt in dein Genre ein.</p>
+                        <h3>Mit dem Auto</h3>
+                        <p>
+                            Für Besucher:innen mit Auto stehen rund um die Talstation signalisiert Parkflächen in
+                            begrenzter Anzahl zur Verfügung. Bitte reise möglichst früh an, da die Plätze schnell
+                            belegt sein können. Von den Parkzonen gelangst du über den ausgeschilderten Fussweg
+                            direkt zum Check-in und zur Gondelstation.
+                        </p>
                     </div>
                 </div>
+            </div>
 
-                <div class="step step--pink" data-step-delay="100">
-                    <button class="step-header" aria-expanded="false">
-                        <div class="step-badge">2</div>
-                        <span class="step-title">Fahrt: Live Performance</span>
-                        <span class="step-chevron">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="step-body">
-                        <p class="step-desc">Während der Fahrt wird in deiner Gondel live performt. Intime Sets für 8–10
-                            Personen, schwebend über den Alpen – das gibt's nirgendwo sonst.</p>
+            <!-- Item 2: Essen und Trinken-->
+            <div class="faq-item">
+                <button class="faq-trigger faq-trigger--blue" type="button" aria-expanded="false">
+                    <span class="faq-trigger__label">Essen und Trinken</span>
+                    <span class="faq-trigger__icon" aria-hidden="true">↓</span>
+                </button>
+
+                <div class="faq-panel faq-panel--blue">
+                    <div class="faq-panel__content">
+                        <h3>Essmöglichkeiten</h3>
+                        <p>
+                            Rund um die Talstation und auf dem Festivalgelände findest du eine kleine, kuratierte Auswahl
+                            an Food-Ständen mit vegetarischen, veganen und herzhaften alpinen Optionen. Geplant sind
+                            unter anderem frische Bowls, regionale Spezialitäten, Street-Food-Klassiker und süsse Snacks
+                            für zwischendurch.
+                        </p>
+
+                        <h3>Trinkmöglichkeiten</h3>
+                        <p>
+                            Mehrere Bars und Getränkestationen versorgen dich den ganzen Tag mit Softdrinks, Wasser,
+                            Kaffee, Bier, Wein und ausgewählten Signature-Drinks. Zusätzlich gibt es in der Nähe der
+                            Main Stage sowie bei den Gondel-Zugängen unkomplizierte Refill- und Getränkepunkte, damit
+                            du auch zwischen den Acts schnell versorgt bist.
+                        </p>
                     </div>
                 </div>
+            </div>
 
-                <div class="step step--violet" data-step-delay="200">
-                    <button class="step-header" aria-expanded="false">
-                        <div class="step-badge">3</div>
-                        <span class="step-title">Gipfel: Main Stage</span>
-                        <span class="step-chevron">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="step-body">
-                        <p class="step-desc">Oben angekommen erwartet dich die Haupt-Bühne mit den Headlinern. Party auf
-                            2'500m – mit dem besten Panorama der Schweiz.</p>
+            <!-- Item 3: Zahlungsmitteln-->
+            <div class="faq-item">
+                <button class="faq-trigger faq-trigger--green" type="button" aria-expanded="false">
+                    <span class="faq-trigger__label">Zahlungsmittel</span>
+                    <span class="faq-trigger__icon" aria-hidden="true">↓</span>
+                </button>
+
+                <div class="faq-panel faq-panel--green">
+                    <div class="faq-panel__content">
+                        <h3>Akzeptierte Zahlungsmittel</h3>
+                        <p>
+                            Auf dem Festivalgelände kannst du an den meisten Food-, Bar- und Merch-Ständen bequem
+                            bargeldlos bezahlen. Bitte beachte aber, dass es je nach Standort und Besucheraufkommen
+                            vereinzelt sinnvoll sein kann, auch etwas Bargeld dabeizuhaben.
+                        </p>
+
+                        <ul class="faq-list">
+                            <li>Kreditkarten (Visa, Mastercard)</li>
+                            <li>Debitkarten / Maestro</li>
+                            <li>TWINT</li>
+                            <li>Apple Pay &amp; Google Pay</li>
+                            <li>Bargeld an ausgewählten Ständen</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
 
+            <!-- Item 4: Berrierefreiheit-->
+            <div class="faq-item">
+                <button class="faq-trigger" type="button" aria-expanded="false">
+                    <span class="faq-trigger__label">Barrierefreiheit</span>
+                    <span class="faq-trigger__icon" aria-hidden="true">↓</span>
+                </button>
+
+                <div class="faq-panel">
+                    <div class="faq-panel__content">
+                        <h3>Zugang zum Festival</h3>
+                        <p>
+                            Das Festivalgelände bei der Talstation ist in den zentralen Bereichen gut zugänglich. 
+                            Ausgewählte Wege, Eingangsbereiche und Aufenthaltszonen sind so geplant, dass sie 
+                            auch mit Rollstuhl oder Gehhilfe genutzt werden können.
+                        </p>
+
+                        <h3>Unterstützung vor Ort</h3>
+                        <p>
+                            Vor Ort steht ein kleines Support-Team bereit, das bei Fragen zur Anreise, zum Zugang 
+                            oder zur Orientierung unterstützt. Wenn du besondere Bedürfnisse hast, empfehlen wir 
+                            dir, uns vorab zu kontaktieren, damit wir deinen Besuch bestmöglich vorbereiten können.
+                        </p>
+
+                        <h3>Wichtiger Hinweis</h3>
+                        <p>
+                            Bitte beachte, dass einzelne Bereiche am Berg und gewisse Geländepassagen aufgrund der 
+                            alpinen Lage nur eingeschränkt barrierefrei zugänglich sein können.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5: Ticket Refund -->
+            <div class="faq-item">
+                <button class="faq-trigger faq-trigger--blue" type="button" aria-expanded="false">
+                    <span class="faq-trigger__label">Ticket Refund</span>
+                    <span class="faq-trigger__icon" aria-hidden="true">↓</span>
+                </button>
+
+                <div class="faq-panel faq-panel--blue">
+                    <div class="faq-panel__content">
+                        <h3>Rückerstattung von Tickets</h3>
+                        <p>
+                            GONDOLA-Tickets sind grundsätzlich vom Umtausch und von der Rückerstattung ausgeschlossen. 
+                            Das hilft uns, die Planung des Festivals, der Gondelfahrten und der Kapazitäten 
+                            verlässlich sicherzustellen.
+                        </p>
+
+                        <h3>Ausnahmen</h3>
+                        <p>
+                            Sollte das Festival von unserer Seite abgesagt und nicht verschoben werden, wird der 
+                            Ticketpreis selbstverständlich rückerstattet. Im Fall einer Verschiebung behalten bereits 
+                            gekaufte Tickets ihre Gültigkeit für das neue Datum.
+                        </p>
+
+                        <h3>Weitergabe von Tickets</h3>
+                        <p>
+                            Falls du verhindert bist, kannst du dein Ticket bis kurz vor dem Festival an eine andere 
+                            Person weitergeben, sofern die Angaben im Ticketbereich entsprechend angepasst werden können.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6: Unterkünfte in der Nähe-->
+            <div class="faq-item">
+                <button class="faq-trigger faq-trigger--green" type="button" aria-expanded="false">
+                    <span class="faq-trigger__label">Unterkünfte in der Nähe</span>
+                    <span class="faq-trigger__icon" aria-hidden="true">↓</span>
+                </button>
+
+                <div class="faq-panel faq-panel--green">
+                    <div class="faq-panel__content">
+                        <h3>Übernachten rund um den Säntis</h3>
+                        <p>
+                            Wer das Festivalwochenende entspannt geniessen möchte, findet in der Region verschiedene 
+                            Übernachtungsmöglichkeiten – von gemütlichen Gasthäusern und Berghotels bis hin zu 
+                            einfachen Pensionen und Unterkünften im Appenzellerland.
+                        </p>
+
+                        <h3>Empfehlung</h3>
+                        <p>
+                            Da im August viele Gäste in der Region unterwegs sind, empfehlen wir eine frühzeitige 
+                            Buchung. Besonders praktisch sind Unterkünfte in der Nähe von Schwägalp, Urnäsch oder 
+                            Appenzell, von wo aus du gut zum Festival an- und abreisen kannst.
+                        </p>
+
+                        <h3>Tipp für die Rückreise</h3>
+                        <p>
+                            Wenn du bis spät am Abend bleiben willst, lohnt es sich, bereits im Voraus zu prüfen, 
+                            welche Unterkunft am besten zu deiner geplanten Rückfahrt oder Weiterreise passt.
+                        </p>                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Item 7: Packliste-->
+            <div class="faq-item">
+                <button class="faq-trigger" type="button" aria-expanded="false">
+                    <span class="faq-trigger__label">Packliste</span>
+                    <span class="faq-trigger__icon" aria-hidden="true">↓</span>
+                </button>
+
+                <div class="faq-panel">
+                    <div class="faq-panel__content">
+                        <h3>Was du dabeihaben solltest</h3>
+                        <p>
+                            Für einen entspannten Festivaltag in den Bergen empfehlen wir dir, dich auf 
+                            wechselhaftes Wetter und längere Aufenthalte draussen vorzubereiten.
+                        </p>
+
+                        <h3>Empfohlene Essentials</h3>
+                        <ul class="faq-list">
+                            <li>gültiges Ticket</li>
+                            <li>wetterfeste Jacke oder zusätzliche Schicht</li>
+                            <li>bequeme, geschlossene Schuhe</li>
+                            <li>Sonnenbrille und Sonnenschutz</li>
+                            <li>Wasserflasche</li>
+                            <li>Powerbank</li>
+                            <li>kleine Tasche oder Rucksack</li>
+                            <li>etwas Bargeld als Reserve</li>
+                        </ul>
+
+                        <h3>Gut zu wissen</h3>
+                        <p>
+                            Auch im Sommer kann es in der Höhe kühler und windiger werden als im Tal. 
+                            Am besten kleidest du dich so, dass du flexibel auf Sonne, Wind und 
+                            Temperaturwechsel reagieren kannst.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 8: Schlechtwetter & Verschiebedatum -->
+            <div class="faq-item">
+                <button class="faq-trigger faq-trigger--blue" type="button" aria-expanded="false">
+                    <span class="faq-trigger__label">Schlechtwetter & Verschiebedatum</span>
+                    <span class="faq-trigger__icon" aria-hidden="true">↓</span>
+                </button>
+
+                <div class="faq-panel faq-panel--blue">
+                    <div class="faq-panel__content">
+                        <h3>Durchführung bei Wetteränderungen</h3>
+                        <p>
+                            GONDOLA findet grundsätzlich auch bei wechselhaftem Wetter statt. Gerade die alpine 
+                            Atmosphäre gehört zum Festivalerlebnis dazu. Sollte jedoch die Sicherheit von Gästen, 
+                            Crew oder Betrieb aufgrund extremer Wetterbedingungen nicht gewährleistet sein, kann 
+                            das Festival verschoben werden.
+                        </p>
+
+                        <h3>Verschiebedatum</h3>
+                        <p>
+                            Ein mögliches Verschiebedatum wird so früh wie möglich über unsere offiziellen Kanäle 
+                            kommuniziert. Bereits gekaufte Tickets bleiben in diesem Fall automatisch für das 
+                            neue Datum gültig.
+                        </p>
+
+                        <h3>Kommunikation</h3>
+                        <p>
+                            Wir informieren dich rechtzeitig per Website, Social Media und – falls verfügbar – über 
+                            die beim Ticketkauf angegebene E-Mail-Adresse.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -325,18 +518,23 @@
             observer.observe(el);
         });
 
-        // Accordion
-        document.querySelectorAll('.step-header').forEach(btn => {
+        // FAQ accordion
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
             btn.addEventListener('click', () => {
-                const step = btn.closest('.step');
-                const isOpen = step.classList.contains('open');
-                document.querySelectorAll('.step').forEach(s => {
-                    s.classList.remove('open');
-                    s.querySelector('.step-header').setAttribute('aria-expanded', 'false');
+                const item = btn.closest('.faq-item');
+                const panel = item.querySelector('.faq-panel');
+                const isOpen = item.classList.contains('open');
+
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    faqItem.classList.remove('open');
+                    faqItem.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+                    faqItem.querySelector('.faq-panel').hidden = true;
                 });
+
                 if (!isOpen) {
-                    step.classList.add('open');
+                    item.classList.add('open');
                     btn.setAttribute('aria-expanded', 'true');
+                    panel.hidden = false;
                 }
             });
         });
@@ -353,6 +551,29 @@
         }, { threshold: 0.2 });
 
         document.querySelectorAll('#infoBlock').forEach(el => infoObserver.observe(el));
+
+
+
+
+
+
+
+
+        
+        document.querySelectorAll('.faq-trigger').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+
+                item.classList.toggle('open');
+                button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+            });
+        });
+
+
+
+
+
     </script>
 
 </body>
