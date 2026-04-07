@@ -210,10 +210,15 @@
     </section>
 
 
+    <!-- INFORMATIONEN -->
     <section class="info-section">
         <div class="info-block" id="infoBlock">
             <p class="info-eyebrow">Das Konzept</p>
+
+            <!-- Titel -->
             <h2 class="info-title">Die Reise ist<br><em>ein Erlebnis.</em></h2>
+
+            <!-- Inhalt -->
             <p class="info-text">
                 GONDOLA verbindet Festivalkultur mit alpinem Abenteuer. Auf dem Gipfel spielen die Headliner – aber
                 schon die Fahrt nach oben ist Teil des Erlebnisses.
@@ -479,102 +484,7 @@
         </div>
     </section>
 
-
-
-    <section class="scroll-hint">
-        <h2>Erfahre mehr über GONDOLA</h2>
-        <p>Scroll für weitere Informationen</p>
-        <div class="scroll-arrow">
-            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M5 12l7 7 7-7"></path>
-            </svg>
-        </div>
-    </section>
-
-
-
-    <script>
-        // Scroll reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const delay = entry.target.dataset.delay || entry.target.dataset.stepDelay || 0;
-                    entry.target.style.animationDelay = delay + 'ms';
-                    entry.target.classList.add('revealed');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-
-        document.querySelectorAll('.lineup-headliner, .lineup-artist').forEach((el, i) => {
-            el.dataset.delay = i * 80;
-            observer.observe(el);
-        });
-        document.querySelectorAll('.ticket-header, .ticket-card, .ticket-strip').forEach(el => {
-            observer.observe(el);
-        });
-
-        document.querySelectorAll('.step').forEach(el => {
-            observer.observe(el);
-        });
-
-        // FAQ accordion
-        document.querySelectorAll('.faq-toggle').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const item = btn.closest('.faq-item');
-                const panel = item.querySelector('.faq-panel');
-                const isOpen = item.classList.contains('open');
-
-                document.querySelectorAll('.faq-item').forEach(faqItem => {
-                    faqItem.classList.remove('open');
-                    faqItem.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
-                    faqItem.querySelector('.faq-panel').hidden = true;
-                });
-
-                if (!isOpen) {
-                    item.classList.add('open');
-                    btn.setAttribute('aria-expanded', 'true');
-                    panel.hidden = false;
-                }
-            });
-        });
-
-
-        // Info Block reveal
-        const infoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    infoObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('#infoBlock').forEach(el => infoObserver.observe(el));
-
-
-
-
-
-
-
-
-        
-        document.querySelectorAll('.faq-trigger').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.closest('.faq-item');
-                const isOpen = item.classList.contains('open');
-
-                item.classList.toggle('open');
-                button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-            });
-        });
-
-
-
-
-
-    </script>
+    <script src="script.js"></script>
 
 </body>
 

@@ -177,6 +177,7 @@
 .faq-section {
     width: 100%;
     padding: clamp(40px, 8vh, 90px) clamp(16px, 5vw, 80px);
+    background-color: #FFF8F0;
 }
 
 .faq-inner {
@@ -187,6 +188,7 @@
 
 .faq-item {
     width: 100%;
+    padding-bottom: 24px;
 }
 
 .faq-trigger {
@@ -274,7 +276,6 @@
 
 .faq-trigger--blue {
     background: #1AA5D9;
-    color: #ffffff;
 }
 
 .faq-panel--blue {
