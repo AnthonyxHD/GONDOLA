@@ -240,14 +240,6 @@
     border-radius: 100px;
 }
 
-/* ── Blob button ── */
-.ticket-btn {
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
 .ticket-btn:hover {
     transform: scale(1.06);
     transition: all 0.2s ease-in-out;
@@ -277,9 +269,9 @@
 .ticket-btn__label {
     font-family: please-vf;
     font-weight: light;
-    font-size: 24px;
-    font-weight: 400;
-    fill: #ffffff;
+    font-size: 32px;
+    font-weight: 300;
+    fill: #000000;
     letter-spacing: 0.2px;
     pointer-events: none;
 }

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="lineup.css">
     <link rel="stylesheet" href="ticket.css">
     <link rel="stylesheet" href="faq.css">
+    <link rel="stylesheet" href="navigation.css">
 
     <link rel="stylesheet" href="https://use.typekit.net/fze1rbx.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -21,19 +22,66 @@
 
 <body>
 
-       <div class="cart-icon" onclick="toggleCart()">
-    <i class="fa fa-shopping-cart"></i>
-    <span id="cart-count">0</span>
-</div>
+    <section class="navigation">
+        <nav class="gondola-nav" aria-label="Seitennavigation">
+            <a href="#hero" class="nav-pill nav-pill--logo">gondola</a>
+            <a href="#lineup" class="nav-pill nav-pill--acts">Main-Acts</a>
+            <a href="#ticket" class="nav-pill nav-pill--ticket">Tickets kaufen</a>
+            <a href="#info" class="nav-pill nav-pill--gondel">die gondeln</a>
+            <a href="#steps" class="nav-pill nav-pill--faq">FAQ's</a>
+        </nav>
+        <script>
+            (function () {
+                document.querySelectorAll('.nav-pill[href^="#"], .nav-cart-circle[href^="#"]').forEach(link => {
+                    link.addEventListener('click', e => {
+                        e.preventDefault();
+                        const target = document.querySelector(link.getAttribute('href'));
+                        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                });
 
-<div id="cart" class="cart hidden">
-    <ul id="cart-items"></ul>
+                const sections = [
+                    { id: 'hero', pill: '.nav-pill--logo' },
+                    { id: 'lineup', pill: '.nav-pill--acts' },
+                    { id: 'ticket', pill: '.nav-pill--ticket' },
+                    { id: 'info', pill: '.nav-pill--gondel' },
+                    { id: 'steps', pill: '.nav-pill--faq' },
+                ];
+
+                const sectionObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('is-active'));
+                            const match = sections.find(s => s.id === entry.target.id);
+                            if (match) document.querySelector(match.pill)?.classList.add('is-active');
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                sections.forEach(s => {
+                    const el = document.getElementById(s.id);
+                    if (el) sectionObserver.observe(el);
+                });
+            })();
+        </script>
+
+
+    </section>
+
+
+    <div class="cart-icon" onclick="toggleCart()">
+        <i class="fa fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+
+    <div id="cart" class="cart hidden">
+        <ul id="cart-items"></ul>
     </div>
 
     <!-- ═══════════════════════════════════════
          HERO SECTION 
          ═══════════════════════════════════════ -->
-    <section class="hero snap-section">
+    <section class="hero snap-section" id="hero">
         <div class="hero-info">
             <p class="hero-subtitle">Musikfestival auf dem Säntis</p>
             <p class="hero-date">22. August 2026</p>
@@ -52,7 +100,7 @@
 
 
     <!-- LINEUP -->
-    <section class="lineup-section">
+    <section class="lineup-section" id="lineup">
         <div class="lineup-block">
             <div class="lineup-artists">
                 <!-- Titel -->
@@ -93,7 +141,7 @@
         </div>
     </section>
 
-    <section class="ticket-section">
+    <section class="ticket-section" id="ticket">
 
         <div class="ticket-inner">
 
@@ -155,10 +203,6 @@
                         <svg class="ticket-btn__svg" viewBox="0 0 260 80" xmlns="http://www.w3.org/2000/svg">
                             <!-- Pill body -->
                             <rect class="ticket-btn__shape" x="0" y="10" width="250" height="58" rx="29" />
-                            <!-- Blob oben rechts -->
-                            <circle class="ticket-btn__shape" cx="238" cy="10" r="15" />
-                            <!-- Blob unten links -->
-                            <circle class="ticket-btn__shape" cx="22" cy="70" r="10" />
                             <!-- Label -->
                             <text class="ticket-btn__label" x="122" y="42" text-anchor="middle"
                                 dominant-baseline="middle">Tickets kaufen</text>
@@ -211,7 +255,7 @@
 
 
     <!-- INFORMATIONEN -->
-    <section class="info-section">
+    <section class="info-section" id="info">
         <div class="info-block" id="infoBlock">
             <p class="info-eyebrow">Das Konzept</p>
 
@@ -231,7 +275,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq-section">
+    <section class="faq-section" id="steps">
         <div class="faq-inner">
             <!-- Item 1: Anfahrt-->
             <div class="faq-item">
@@ -272,7 +316,8 @@
                     <div class="faq-panel__content">
                         <h3>Essmöglichkeiten</h3>
                         <p>
-                            Rund um die Talstation und auf dem Festivalgelände findest du eine kleine, kuratierte Auswahl
+                            Rund um die Talstation und auf dem Festivalgelände findest du eine kleine, kuratierte
+                            Auswahl
                             an Food-Ständen mit vegetarischen, veganen und herzhaften alpinen Optionen. Geplant sind
                             unter anderem frische Bowls, regionale Spezialitäten, Street-Food-Klassiker und süsse Snacks
                             für zwischendurch.
@@ -327,21 +372,21 @@
                     <div class="faq-panel__content">
                         <h3>Zugang zum Festival</h3>
                         <p>
-                            Das Festivalgelände bei der Talstation ist in den zentralen Bereichen gut zugänglich. 
-                            Ausgewählte Wege, Eingangsbereiche und Aufenthaltszonen sind so geplant, dass sie 
+                            Das Festivalgelände bei der Talstation ist in den zentralen Bereichen gut zugänglich.
+                            Ausgewählte Wege, Eingangsbereiche und Aufenthaltszonen sind so geplant, dass sie
                             auch mit Rollstuhl oder Gehhilfe genutzt werden können.
                         </p>
 
                         <h3>Unterstützung vor Ort</h3>
                         <p>
-                            Vor Ort steht ein kleines Support-Team bereit, das bei Fragen zur Anreise, zum Zugang 
-                            oder zur Orientierung unterstützt. Wenn du besondere Bedürfnisse hast, empfehlen wir 
+                            Vor Ort steht ein kleines Support-Team bereit, das bei Fragen zur Anreise, zum Zugang
+                            oder zur Orientierung unterstützt. Wenn du besondere Bedürfnisse hast, empfehlen wir
                             dir, uns vorab zu kontaktieren, damit wir deinen Besuch bestmöglich vorbereiten können.
                         </p>
 
                         <h3>Wichtiger Hinweis</h3>
                         <p>
-                            Bitte beachte, dass einzelne Bereiche am Berg und gewisse Geländepassagen aufgrund der 
+                            Bitte beachte, dass einzelne Bereiche am Berg und gewisse Geländepassagen aufgrund der
                             alpinen Lage nur eingeschränkt barrierefrei zugänglich sein können.
                         </p>
                     </div>
@@ -359,22 +404,23 @@
                     <div class="faq-panel__content">
                         <h3>Rückerstattung von Tickets</h3>
                         <p>
-                            GONDOLA-Tickets sind grundsätzlich vom Umtausch und von der Rückerstattung ausgeschlossen. 
-                            Das hilft uns, die Planung des Festivals, der Gondelfahrten und der Kapazitäten 
+                            GONDOLA-Tickets sind grundsätzlich vom Umtausch und von der Rückerstattung ausgeschlossen.
+                            Das hilft uns, die Planung des Festivals, der Gondelfahrten und der Kapazitäten
                             verlässlich sicherzustellen.
                         </p>
 
                         <h3>Ausnahmen</h3>
                         <p>
-                            Sollte das Festival von unserer Seite abgesagt und nicht verschoben werden, wird der 
-                            Ticketpreis selbstverständlich rückerstattet. Im Fall einer Verschiebung behalten bereits 
+                            Sollte das Festival von unserer Seite abgesagt und nicht verschoben werden, wird der
+                            Ticketpreis selbstverständlich rückerstattet. Im Fall einer Verschiebung behalten bereits
                             gekaufte Tickets ihre Gültigkeit für das neue Datum.
                         </p>
 
                         <h3>Weitergabe von Tickets</h3>
                         <p>
-                            Falls du verhindert bist, kannst du dein Ticket bis kurz vor dem Festival an eine andere 
-                            Person weitergeben, sofern die Angaben im Ticketbereich entsprechend angepasst werden können.
+                            Falls du verhindert bist, kannst du dein Ticket bis kurz vor dem Festival an eine andere
+                            Person weitergeben, sofern die Angaben im Ticketbereich entsprechend angepasst werden
+                            können.
                         </p>
                     </div>
                 </div>
@@ -391,27 +437,27 @@
                     <div class="faq-panel__content">
                         <h3>Übernachten rund um den Säntis</h3>
                         <p>
-                            Wer das Festivalwochenende entspannt geniessen möchte, findet in der Region verschiedene 
-                            Übernachtungsmöglichkeiten – von gemütlichen Gasthäusern und Berghotels bis hin zu 
+                            Wer das Festivalwochenende entspannt geniessen möchte, findet in der Region verschiedene
+                            Übernachtungsmöglichkeiten – von gemütlichen Gasthäusern und Berghotels bis hin zu
                             einfachen Pensionen und Unterkünften im Appenzellerland.
                         </p>
 
                         <h3>Empfehlung</h3>
                         <p>
-                            Da im August viele Gäste in der Region unterwegs sind, empfehlen wir eine frühzeitige 
-                            Buchung. Besonders praktisch sind Unterkünfte in der Nähe von Schwägalp, Urnäsch oder 
+                            Da im August viele Gäste in der Region unterwegs sind, empfehlen wir eine frühzeitige
+                            Buchung. Besonders praktisch sind Unterkünfte in der Nähe von Schwägalp, Urnäsch oder
                             Appenzell, von wo aus du gut zum Festival an- und abreisen kannst.
                         </p>
 
                         <h3>Tipp für die Rückreise</h3>
                         <p>
-                            Wenn du bis spät am Abend bleiben willst, lohnt es sich, bereits im Voraus zu prüfen, 
+                            Wenn du bis spät am Abend bleiben willst, lohnt es sich, bereits im Voraus zu prüfen,
                             welche Unterkunft am besten zu deiner geplanten Rückfahrt oder Weiterreise passt.
-                        </p>                        
+                        </p>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Item 7: Packliste-->
             <div class="faq-item">
                 <button class="faq-trigger" type="button" aria-expanded="false">
@@ -423,7 +469,7 @@
                     <div class="faq-panel__content">
                         <h3>Was du dabeihaben solltest</h3>
                         <p>
-                            Für einen entspannten Festivaltag in den Bergen empfehlen wir dir, dich auf 
+                            Für einen entspannten Festivaltag in den Bergen empfehlen wir dir, dich auf
                             wechselhaftes Wetter und längere Aufenthalte draussen vorzubereiten.
                         </p>
 
@@ -441,8 +487,8 @@
 
                         <h3>Gut zu wissen</h3>
                         <p>
-                            Auch im Sommer kann es in der Höhe kühler und windiger werden als im Tal. 
-                            Am besten kleidest du dich so, dass du flexibel auf Sonne, Wind und 
+                            Auch im Sommer kann es in der Höhe kühler und windiger werden als im Tal.
+                            Am besten kleidest du dich so, dass du flexibel auf Sonne, Wind und
                             Temperaturwechsel reagieren kannst.
                         </p>
                     </div>
@@ -460,22 +506,22 @@
                     <div class="faq-panel__content">
                         <h3>Durchführung bei Wetteränderungen</h3>
                         <p>
-                            GONDOLA findet grundsätzlich auch bei wechselhaftem Wetter statt. Gerade die alpine 
-                            Atmosphäre gehört zum Festivalerlebnis dazu. Sollte jedoch die Sicherheit von Gästen, 
-                            Crew oder Betrieb aufgrund extremer Wetterbedingungen nicht gewährleistet sein, kann 
+                            GONDOLA findet grundsätzlich auch bei wechselhaftem Wetter statt. Gerade die alpine
+                            Atmosphäre gehört zum Festivalerlebnis dazu. Sollte jedoch die Sicherheit von Gästen,
+                            Crew oder Betrieb aufgrund extremer Wetterbedingungen nicht gewährleistet sein, kann
                             das Festival verschoben werden.
                         </p>
 
                         <h3>Verschiebedatum</h3>
                         <p>
-                            Ein mögliches Verschiebedatum wird so früh wie möglich über unsere offiziellen Kanäle 
-                            kommuniziert. Bereits gekaufte Tickets bleiben in diesem Fall automatisch für das 
+                            Ein mögliches Verschiebedatum wird so früh wie möglich über unsere offiziellen Kanäle
+                            kommuniziert. Bereits gekaufte Tickets bleiben in diesem Fall automatisch für das
                             neue Datum gültig.
                         </p>
 
                         <h3>Kommunikation</h3>
                         <p>
-                            Wir informieren dich rechtzeitig per Website, Social Media und – falls verfügbar – über 
+                            Wir informieren dich rechtzeitig per Website, Social Media und – falls verfügbar – über
                             die beim Ticketkauf angegebene E-Mail-Adresse.
                         </p>
                     </div>
