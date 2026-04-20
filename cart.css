@@ -547,20 +547,17 @@
 .cart-btn--primary:hover {
     filter: drop-shadow(0 0 3px #FE41DB) drop-shadow(0 0 7px #FE41DB);
 }
-
-/* Secondary — blau wie ticket-date-chip */
+/* Secondary — #1AA5D9 */
 .cart-btn--secondary {
-    background: transparent;
-    color: rgba(0,0,0,0.5);
-    border: 1.5px solid rgba(0,0,0,0.15);
+    background: #1AA5D9;
+    color: #ffffff;
+    border: none;
     width: auto;
     display: inline-block;
     font-size: 18px;
 }
 .cart-btn--secondary:hover {
-    filter: none;
-    border-color: #116EC2;
-    color: #116EC2;
+    filter: drop-shadow(0 0 3px #1AA5D9) drop-shadow(0 0 7px #1AA5D9);
 }
 
 .checkout-actions {
