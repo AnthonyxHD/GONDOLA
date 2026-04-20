@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GONDOLA – Warenkorb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navigation.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://use.typekit.net/fze1rbx.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <section class="navigation">
+        <nav class="gondola-nav" aria-label="Seitennavigation">
+            <a href="index.html" class="nav-pill nav-pill--logo">gondola</a>
+            <a href="index.html#lineup" class="nav-pill nav-pill--acts">Main-Acts</a>
+            <a href="index.html#ticket" class="nav-pill nav-pill--ticket">Tickets kaufen</a>
+            <a href="index.html#info" class="nav-pill nav-pill--gondel">die gondeln</a>
+            <a href="index.html#steps" class="nav-pill nav-pill--faq">FAQ's</a>
+        </nav>
+    </section>
+
+    <!-- CART PAGE -->
+    <main class="cart-page">
+
+        <div class="cart-container">
+
+            <!-- HEADER -->
+            <div class="cart-header">
+                <a href="index.html" class="cart-back">
+                    <i class="fa fa-arrow-left"></i> Zurück
+                </a>
+                <h1 class="cart-title">Warenkorb</h1>
+            </div>
+
+            <!-- EMPTY STATE -->
+            <div class="cart-empty" id="cartEmpty">
+                <div class="cart-empty__icon">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <p class="cart-empty__text">Dein Warenkorb ist leer.</p>
+                <a href="index.html#ticket" class="cart-empty__btn">Tickets kaufen</a>
+            </div>
+
+            <!-- CART CONTENT (visible when items exist) -->
+            <div class="cart-content" id="cartContent">
+
+                <!-- LEFT: Items + Summary -->
+                <div class="cart-left">
+
+                    <!-- Items list -->
+                    <div class="cart-items-block">
+                        <h2 class="cart-section-title">Deine Tickets</h2>
+                        <div id="cartItemsList"></div>
+                    </div>
+
+                    <!-- Order summary -->
+                    <div class="cart-summary-block">
+                        <div class="cart-summary-row">
+                            <span>Zwischensumme</span>
+                            <span id="summarySubtotal">CHF 0.00</span>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>Servicegebühr</span>
+                            <span id="summaryFee">CHF 0.00</span>
+                        </div>
+                        <div class="cart-summary-row cart-summary-row--total">
+                            <span>Total</span>
+                            <span id="summaryTotal">CHF 0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Checkout form -->
+                <div class="cart-right">
+                    <h2 class="cart-section-title">Zahlung</h2>
+
+                    <!-- Step indicator -->
+                    <div class="cart-steps">
+                        <div class="cart-step cart-step--active" id="step1Indicator">
+                            <span class="cart-step__num">1</span>
+                            <span class="cart-step__label">Kontakt</span>
+                        </div>
+                        <div class="cart-step__line"></div>
+                        <div class="cart-step" id="step2Indicator">
+                            <span class="cart-step__num">2</span>
+                            <span class="cart-step__label">Zahlung</span>
+                        </div>
+                        <div class="cart-step__line"></div>
+                        <div class="cart-step" id="step3Indicator">
+                            <span class="cart-step__num">3</span>
+                            <span class="cart-step__label">Bestätigung</span>
+                        </div>
+                    </div>
+
+                    <!-- STEP 1: Contact info -->
+                    <div class="checkout-step" id="step1">
+                        <div class="form-group">
+                            <label class="form-label" for="firstName">Vorname</label>
+                            <input class="form-input" type="text" id="firstName" placeholder="Max" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lastName">Nachname</label>
+                            <input class="form-input" type="text" id="lastName" placeholder="Muster" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">E-Mail</label>
+                            <input class="form-input" type="email" id="email" placeholder="deine@email.ch" />
+                        </div>
+                        <div class="form-error" id="step1Error"></div>
+                        <button class="cart-btn cart-btn--primary" onclick="goToStep2()">
+                            Weiter zur Zahlung →
+                        </button>
+                    </div>
+
+                    <!-- STEP 2: Payment -->
+                    <div class="checkout-step hidden" id="step2">
+
+                        <!-- Payment method toggle -->
+                        <div class="payment-methods">
+                            <button class="payment-tab payment-tab--active" id="tabCard" onclick="selectMethod('card')">
+                                <i class="fa fa-credit-card"></i> Kreditkarte
+                            </button>
+                            <button class="payment-tab" id="tabTwint" onclick="selectMethod('twint')">
+                                <img src="images/twint-logo.svg" alt="TWINT" class="twint-logo" onerror="this.style.display='none'; this.nextSibling.style.display='inline'">
+                                <span style="display:none;">TWINT</span>
+                                TWINT
+                            </button>
+                        </div>
+
+                        <!-- Credit card form -->
+                        <div id="cardForm">
+                            <div class="form-group">
+                                <label class="form-label" for="cardName">Name auf der Karte</label>
+                                <input class="form-input" type="text" id="cardName" placeholder="MAX MUSTER" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="cardNumber">Kartennummer</label>
+                                <div class="card-input-wrapper">
+                                    <input class="form-input" type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCardNumber(this)" />
+                                    <div class="card-icons">
+                                        <i class="fa-brands fa-cc-visa"></i>
+                                        <i class="fa-brands fa-cc-mastercard"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="cardExpiry">Ablaufdatum</label>
+                                    <input class="form-input" type="text" id="cardExpiry" placeholder="MM/JJ" maxlength="5" oninput="formatExpiry(this)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="cardCvc">CVV</label>
+                                    <input class="form-input" type="text" id="cardCvc" placeholder="123" maxlength="3" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TWINT form -->
+                        <div id="twintForm" class="hidden">
+                            <div class="twint-info">
+                                <div class="twint-qr">
+                                    <div class="twint-qr__placeholder">
+                                        <i class="fa fa-qrcode"></i>
+                                    </div>
+                                    <p class="twint-qr__label">QR-Code mit TWINT-App scannen</p>
+                                </div>
+                                <div class="twint-phone">
+                                    <p class="form-label">Oder Handynummer eingeben</p>
+                                    <div class="form-group">
+                                        <label class="form-label" for="twintPhone">Handynummer</label>
+                                        <input class="form-input" type="tel" id="twintPhone" placeholder="+41 79 000 00 00" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-error" id="step2Error"></div>
+
+                        <div class="checkout-actions">
+                            <button class="cart-btn cart-btn--secondary" onclick="goToStep1()">← Zurück</button>
+                            <button class="cart-btn cart-btn--primary" onclick="processPayment()">
+                                Jetzt bezahlen · <span id="payBtnTotal">CHF 0.00</span>
+                            </button>
+                        </div>
+
+                        <div class="cart-secure">
+                            <i class="fa fa-lock"></i> Sichere SSL-Verschlüsselung
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Confirmation -->
+                    <div class="checkout-step hidden" id="step3">
+                        <div class="confirmation">
+                            <div class="confirmation__icon">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <h3 class="confirmation__title">Bestellung bestätigt!</h3>
+                            <p class="confirmation__text">
+                                Deine Tickets für GONDOLA 2026 wurden erfolgreich bestellt.<br>
+                                Du erhältst dein PDF-Ticket in Kürze per E-Mail an <strong id="confirmEmail"></strong>.
+                            </p>
+                            <div class="confirmation__details">
+                                <div class="confirmation__row">
+                                    <span>Event</span>
+                                    <span>GONDOLA Festival 2026</span>
+                                </div>
+                                <div class="confirmation__row">
+                                    <span>Datum</span>
+                                    <span>22. August 2026</span>
+                                </div>
+                                <div class="confirmation__row">
+                                    <span>Ort</span>
+                                    <span>Säntis, Schwägalp</span>
+                                </div>
+                                <div class="confirmation__row confirmation__row--total">
+                                    <span>Bezahlt</span>
+                                    <span id="confirmTotal"></span>
+                                </div>
+                            </div>
+                            <a href="index.html" class="cart-btn cart-btn--primary" style="text-align:center; display:block;">Zurück zur Startseite</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="cart.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,673 @@
+/* ═══════════════════════════════════════
+   CART PAGE
+   Design-System orientiert an ticket.css
+   ─────────────────────────────────────
+   Farben:
+     Background    #116EC2
+     Akzent Pink   #FE41DB
+     Akzent Gelb   #F8FF33
+     Akzent Grün   #32F196
+     Akzent Blau   #1AA5D9
+     Dunkel        #0d0d0d
+     Weiss         #ffffff
+   ─────────────────────────────────────
+   Typografie:
+     H1 Titel      please-vf, 900, 64px, lowercase
+     H2            please-display-vf, 500, 48px
+     H3            please-display-vf, 500, 36px
+     H4            please-display-vf, 500, 24px
+     Paragraph     Elza, 400, 18px, lh 1.5
+     Small         Elza, 400, 11px, ls 5px, uppercase
+   ═══════════════════════════════════════ */
+
+/* ── Base ── */
+.cart-page,
+.cart-page * {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-weight: 400;
+}
+
+/* ═══════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════ */
+
+.cart-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #116EC2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(100px, 14vh, 140px) clamp(16px, 5vw, 80px) clamp(60px, 10vh, 120px);
+    position: relative;
+    overflow: hidden;
+}
+
+.cart-container {
+    width: 100%;
+    max-width: 1060px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Header ── */
+.cart-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.cart-header.revealed { opacity: 1; transform: translateY(0); }
+
+.cart-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    align-self: flex-start;
+    transition: color 0.2s;
+}
+.cart-back:hover { color: #F8FF33; }
+
+/* H1 — please-vf Heavy 64px lowercase */
+.cart-title {
+    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 10vw, 120px);
+    font-weight: 500;
+    line-height: 1;
+    color: #FE41DB;
+    letter-spacing: -2px;
+    text-transform: lowercase;
+    margin: 0;
+}
+
+/* ── Empty state ── */
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 80px 24px;
+    text-align: center;
+}
+.cart-empty__icon {
+    font-size: 48px;
+    color: rgba(255,255,255,0.2);
+}
+.cart-empty__text {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.7);
+}
+.cart-empty__btn {
+    display: inline-block;
+    background: #FE41DB;
+    color: #000;
+    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    padding: 12px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: filter 0.2s, transform 0.15s;
+    letter-spacing: 0.2px;
+}
+.cart-empty__btn:hover {
+    filter: drop-shadow(0 0 3px #FE41DB) drop-shadow(0 0 7px #FE41DB);
+    transform: scale(1.04);
+}
+
+/* ── Two-column grid ── */
+.cart-content {
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: 24px;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1) 0.15s, transform 0.75s cubic-bezier(0.22,1,0.36,1) 0.15s;
+}
+.cart-content.revealed { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+    .cart-content { grid-template-columns: 1fr; }
+}
+
+/* ─────────────────────────────────────
+   LEFT COLUMN
+   ───────────────────────────────────── */
+
+/* Section title — Elza uppercase tracking (wie ticket-eyebrow) */
+.cart-section-title {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 16px;
+}
+
+/* Items block — weisser Karten-Look wie ticket-card */
+.cart-items-block {
+    background: #0d0d0d;
+    border-radius: 24px;
+    padding: clamp(20px, 4vw, 36px);
+    margin-bottom: 16px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.cart-item:last-child { border-bottom: none; }
+
+.cart-item__badge {
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.cart-item__info { flex: 1; }
+
+.cart-item__name {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0 0 4px;
+}
+.cart-item__sub {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin: 0;
+}
+
+.cart-item__qty { display: flex; align-items: center; gap: 12px; }
+.cart-item__qty-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+}
+.cart-item__qty-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
+
+.cart-item__qty-num {
+    font-family: please-vf, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #fff;
+    min-width: 20px;
+    text-align: center;
+    line-height: 1;
+}
+
+.cart-item__price {
+    font-family: please-vf, sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: #fff;
+    min-width: 100px;
+    text-align: right;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.cart-item__remove {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.2);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+.cart-item__remove:hover { color: #FE41DB; }
+
+/* Summary block */
+.cart-summary-block {
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 18px 28px;
+}
+
+.cart-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.8);
+    padding: 8px 0;
+}
+
+/* Total — please-vf wie ticket-price__amount */
+.cart-summary-row--total {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-top: 8px;
+    padding-top: 14px;
+}
+.cart-summary-row--total span:first-child {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+}
+.cart-summary-row--total span:last-child {
+    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 500;
+    color: #F8FF33;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+/* ─────────────────────────────────────
+   RIGHT COLUMN — Checkout panel
+   Weisse Karte wie ticket-card__right
+   ───────────────────────────────────── */
+
+.cart-right {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: clamp(28px, 5vw, 44px);
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Section title im weissen Panel */
+.cart-right .cart-section-title {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.35);
+    margin-bottom: 20px;
+}
+
+/* ── Steps ── */
+.cart-steps {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+}
+.cart-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.3;
+    transition: opacity 0.3s;
+}
+.cart-step--active { opacity: 1; }
+.cart-step--done   { opacity: 0.5; }
+
+.cart-step__num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.5);
+    background: transparent;
+    transition: all 0.3s;
+}
+.cart-step--active .cart-step__num {
+    background: #116EC2;
+    color: #F8FF33;
+    border-color: #116EC2;
+}
+.cart-step--done .cart-step__num {
+    background: rgba(0,0,0,0.08);
+    border-color: rgba(0,0,0,0.15);
+    color: rgba(0,0,0,0.4);
+}
+
+.cart-step__label {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.35);
+    white-space: nowrap;
+}
+.cart-step--active .cart-step__label { color: #116EC2; }
+
+.cart-step__line {
+    flex: 1;
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+    margin: 0 6px;
+    margin-bottom: 18px;
+}
+
+/* ── Forms ── */
+.checkout-step.hidden { display: none; }
+.form-group { margin-bottom: 14px; }
+
+.form-label {
+    display: block;
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.35);
+    margin-bottom: 7px;
+}
+.form-input {
+    width: 100%;
+    background: rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #0d0d0d;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+.form-input::placeholder { color: rgba(0,0,0,0.2); }
+.form-input:focus { border-color: #116EC2; }
+.form-input.error { border-color: #FE41DB; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.form-error {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #FE41DB;
+    margin-bottom: 10px;
+    min-height: 18px;
+}
+
+/* ── Card icons ── */
+.card-input-wrapper { position: relative; }
+.card-icons {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 4px;
+    font-size: 20px;
+    color: rgba(0,0,0,0.2);
+}
+
+/* ── Payment tabs — wie ticket-badge / ticket-date-chip ── */
+.payment-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.payment-tab {
+    padding: 10px 14px;
+    background: transparent;
+    border: 1.5px solid rgba(0,0,0,0.12);
+    border-radius: 100px;
+    color: rgba(0,0,0,0.4);
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    transition: all 0.2s;
+}
+.payment-tab:hover {
+    border-color: #116EC2;
+    color: #116EC2;
+}
+/* Aktiver Tab — wie ticket-date-chip */
+.payment-tab--active {
+    background: #116EC2;
+    border-color: #116EC2;
+    color: #F8FF33;
+}
+.twint-logo { height: 16px; }
+
+/* ── TWINT ── */
+.twint-info { display: flex; flex-direction: column; gap: 16px; }
+.twint-qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(0,0,0,0.03);
+    border: 1px dashed rgba(0,0,0,0.12);
+    border-radius: 12px;
+}
+.twint-qr__placeholder {
+    width: 90px;
+    height: 90px;
+    background: rgba(0,0,0,0.06);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: rgba(0,0,0,0.2);
+}
+.twint-qr__label {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.35);
+    margin: 0;
+    text-align: center;
+}
+
+/* ── Buttons — exakt wie ticket-btn ── */
+.cart-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    letter-spacing: 0.2px;
+    padding: 14px 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    line-height: 1;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+.cart-btn:hover { transform: scale(1.04); }
+.cart-btn:active { transform: scale(0.97); }
+
+/* Primary — pink wie ticket-btn__shape */
+.cart-btn--primary {
+    background: #FE41DB;
+    color: #000000;
+}
+.cart-btn--primary:hover {
+    filter: drop-shadow(0 0 3px #FE41DB) drop-shadow(0 0 7px #FE41DB);
+}
+
+/* Secondary — blau wie ticket-date-chip */
+.cart-btn--secondary {
+    background: transparent;
+    color: rgba(0,0,0,0.5);
+    border: 1.5px solid rgba(0,0,0,0.15);
+    width: auto;
+    display: inline-block;
+    font-size: 18px;
+}
+.cart-btn--secondary:hover {
+    filter: none;
+    border-color: #116EC2;
+    color: #116EC2;
+}
+
+.checkout-actions {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+/* Secure — wie ticket-fine */
+.cart-secure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.3);
+    margin-top: 14px;
+}
+
+/* ── Confirmation ── */
+.confirmation { text-align: center; padding: 4px 0; }
+
+.confirmation__icon {
+    width: 60px;
+    height: 60px;
+    background: #F8FF33;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #0d0d0d;
+    margin: 0 auto 20px;
+}
+
+/* H1 — Please Display VF Medium 48px */
+.confirmation__title {
+    font-family: 'please-display-vf', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.05;
+    color: #0d0d0d;
+    letter-spacing: -1px;
+    margin: 0 0 12px;
+}
+
+.confirmation__text {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(0,0,0,0.5);
+    margin: 0 0 20px;
+}
+
+.confirmation__details {
+    background: rgba(0,0,0,0.04);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+.confirmation__row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.4);
+    padding: 5px 0;
+}
+.confirmation__row span:last-child { color: #0d0d0d; }
+
+/* Total — wie ticket-date-chip */
+.confirmation__row--total {
+    border-top: 1px solid rgba(0,0,0,0.08);
+    margin-top: 8px;
+    padding-top: 10px;
+}
+.confirmation__row--total span:first-child {
+    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.35);
+}
+.confirmation__row--total span:last-child {
+    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: #116EC2;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+/* ── Utility ── */
+.hidden { display: none !important; }
+
+.cart-btn--loading { opacity: 0.6; pointer-events: none; }
+.cart-btn--loading::after { content: ' ●●●'; animation: dots 1.2s infinite; }
+@keyframes dots {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+
