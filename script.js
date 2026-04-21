@@ -8,6 +8,7 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const delay = entry.target.dataset.delay || entry.target.dataset.stepDelay || 0;
             entry.target.style.animationDelay = delay + 'ms';
+            entry.target.style.transitionDelay = delay + 'ms';
             entry.target.classList.add('revealed');
             observer.unobserve(entry.target);
         }
@@ -24,6 +25,11 @@ document.querySelectorAll('.ticket-header, .ticket-card, .ticket-strip').forEach
 });
 
 document.querySelectorAll('.step').forEach(el => {
+    observer.observe(el);
+});
+
+document.querySelectorAll('.briefing-title, .briefing-body, .briefing-info').forEach((el, i) => {
+    el.dataset.delay = i * 150;
     observer.observe(el);
 });
 
