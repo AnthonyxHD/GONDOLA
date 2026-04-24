@@ -25,13 +25,16 @@
     <section class="navigation">
         <nav class="gondola-nav" aria-label="Seitennavigation">
             <a href="#hero" class="nav-pill nav-pill--logo">gondola</a>
-            <a href="#lineup" class="nav-pill nav-pill--acts">Main-Acts</a>
-            <a href="#ticket" class="nav-pill nav-pill--ticket">Tickets kaufen</a>
+            <a href="#lineup" class="nav-pill nav-pill--acts">main-acts</a>
             <a href="#info" class="nav-pill nav-pill--gondel">das konzept</a>
-            <a href="#steps" class="nav-pill nav-pill--faq">FAQ's</a>
+            <a href="#ticket" class="nav-pill nav-pill--ticket">ticket kaufen</a>
+            <a href="#steps" class="nav-pill nav-pill--faq">faq's</a>
         </nav>
         <script>
-            (function () {
+            // Warte, bis das HTML vollständig geladen ist
+            document.addEventListener("DOMContentLoaded", function () {
+
+                // 1. Smooth Scrolling
                 document.querySelectorAll('.nav-pill[href^="#"], .nav-cart-circle[href^="#"]').forEach(link => {
                     link.addEventListener('click', e => {
                         e.preventDefault();
@@ -40,29 +43,35 @@
                     });
                 });
 
+                // 2. Observer für die aktive Sektion
                 const sections = [
                     { id: 'hero', pill: '.nav-pill--logo' },
                     { id: 'lineup', pill: '.nav-pill--acts' },
-                    { id: 'ticket', pill: '.nav-pill--ticket' },
                     { id: 'info', pill: '.nav-pill--gondel' },
+                    { id: 'ticket', pill: '.nav-pill--ticket' },
                     { id: 'steps', pill: '.nav-pill--faq' },
                 ];
 
+                // Der Observer feuert jetzt, sobald eine Sektion die mittlere Zone des Bildschirms betritt
                 const sectionObserver = new IntersectionObserver(entries => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
+                            // Zuerst bei allen Pills die Klasse entfernen
                             document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('is-active'));
+
+                            // Dann beim passenden Pill die Klasse hinzufügen
                             const match = sections.find(s => s.id === entry.target.id);
                             if (match) document.querySelector(match.pill)?.classList.add('is-active');
                         }
                     });
-                }, { threshold: 0.3 });
+                }, { rootMargin: "-40% 0px -40% 0px" });
 
+                // Heften des Observers an die Sektionen
                 sections.forEach(s => {
                     const el = document.getElementById(s.id);
                     if (el) sectionObserver.observe(el);
                 });
-            })();
+            });
         </script>
 
 
@@ -70,9 +79,9 @@
 
 
     <a href="cart.html" class="cart-icon">
-    <i class="fa fa-shopping-cart"></i>
-    <span id="cart-count">0</span>
-</a>
+        <i class="fa fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </a>
 
     <!-- ═══════════════════════════════════════
          HERO SECTION 
@@ -105,7 +114,7 @@
                 <!-- Main Artists -->
                 <div class="lineup-group">
                     <div class="lineup-tier">
-                        <div ><a href="main artists/charlotte.html" class="lineup-headliner">Charlotte De Witte</a></div>
+                        <div><a href="main artists/charlotte.html" class="lineup-headliner">Charlotte De Witte</a></div>
                     </div>
                     <div class="lineup-tier">
                         <div><a href="main artists/ajr.html" class="lineup-headliner">AJR</a></div>
@@ -137,32 +146,38 @@
         </div>
     </section>
 
-<!-- INFORMATIONEN -->
+    <!-- INFORMATIONEN -->
     <section class="info-section" id="info">
         <div class="info-block" id="infoBlock">
             <p class="info-eyebrow">Das Konzept</p>
 
             <!-- Titel -->
             <h2 class="info-title">
-                <span class="briefing-title-line1">GONDOLA 2026</span>  <br>
+                <span class="briefing-title-line1">GONDOLA 2026</span> <br>
                 Dein Aufstieg<br><em>zum Sound</em>
             </h2>
 
             <!-- Inhalt -->
-             <h3>Zwei Welten, ein Ticket.</h3>
+            <h3>Zwei Welten, ein Ticket.</h3>
             <p class="info-text">
-                GONDOLA definiert das Festival-Erlebnis neu, indem es die Intimität eines privaten Clubs mit der grenzenlosen Energie einer Gipfel-Show vereint. Bei uns ist der Weg zum Gipfel kein blosser Transport, sondern bereits Teil der Stage.
+                GONDOLA definiert das Festival-Erlebnis neu, indem es die Intimität eines privaten Clubs mit der
+                grenzenlosen Energie einer Gipfel-Show vereint. Bei uns ist der Weg zum Gipfel kein blosser Transport,
+                sondern bereits Teil der Stage.
             </p>
-            
+
             <h3>Das Erlebnis</h3>
-             <p class="info-text">
-                 Jede Gondel wird zur <strong>Sky-Stage</strong>, einem mobilen Konzertraum. Entdecke exklusive Nischen-Sets und wechselnde Genres in privater Club-Atmosphäre, während die Alpenwelt unter dir vorbeizieht.
+            <p class="info-text">
+                Jede Gondel wird zur <strong>Sky-Stage</strong>, einem mobilen Konzertraum. Entdecke exklusive
+                Nischen-Sets und wechselnde Genres in privater Club-Atmosphäre, während die Alpenwelt unter dir
+                vorbeizieht.
             </p>
             <p class="info-text">
-                 Am Gipfel erwartet dich die <strong>Peak-Energy</strong> der MainStage. Tanze unter freiem Himmel zu unseren Headlinern, umgeben von einem atemberaubenden Panorama.
+                Am Gipfel erwartet dich die <strong>Peak-Energy</strong> der MainStage. Tanze unter freiem Himmel zu
+                unseren Headlinern, umgeben von einem atemberaubenden Panorama.
             </p>
             <p class="info-text">
-                 Komm vorbei und erlebe den einzigartigen Kontrast aus intimen Momenten in der Schwebe und der Ekstase auf dem Bergstation-Plateau!
+                Komm vorbei und erlebe den einzigartigen Kontrast aus intimen Momenten in der Schwebe und der Ekstase
+                auf dem Bergstation-Plateau!
             </p>
 
             <h3>Fast Facts</h3>
@@ -291,7 +306,7 @@
     </section>
 
 
-    
+
 
     <!-- FAQ -->
     <section class="faq-section" id="steps">

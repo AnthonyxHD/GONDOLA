@@ -26,13 +26,12 @@
     transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
 }
 
-.nav-pill:hover {
-    transform: scale(1.07) translateX(-4px);
-    filter: brightness(1.08);
-}
-
 .nav-pill:active {
     transform: scale(0.97);
+}
+
+.nav-pill.is-active {
+    text-transform: uppercase;
 }
 
 .nav-pill--logo {
@@ -40,48 +39,27 @@
     color: #ffffff;
     border-radius: 200px;
     padding: 5px 20px;
-    margin-right: 60px;
-}
-.nav-pill--logo:hover {
-  filter: drop-shadow(0 0 8px #1AA5D9) drop-shadow(0 0 22px rgba(26, 165, 217, 0.6));
+    margin-right: 45px;
 }
 
 .nav-pill--acts {
     background: #FE41DB;
-    margin-right: 120px;
-}
-.nav-pill--acts:hover {
-  filter: drop-shadow(0 0 8px #FE41DB) drop-shadow(0 0 22px rgba(254, 65, 219, 0.6));
+    margin-right: 105px;
 }
 
 .nav-pill--ticket {
     background: #32F196;
-    margin-right: 0px;
+    margin-right: 70px;
 }
-.nav-pill--ticket:hover {
-  filter: drop-shadow(0 0 8px #32F196) drop-shadow(0 0 22px rgba(50, 241, 150, 0.6));
-}
-
 
 .nav-pill--gondel {
     background: #F8FF33;
-    margin-right: 90px;
-}
-.nav-pill--gondel:hover {
-  filter: drop-shadow(0 0 8px #F8FF33) drop-shadow(0 0 22px rgba(248, 255, 51, 0.6));
+    margin-right: 0px;
 }
 
 .nav-pill--faq {
     background: #FE41DB;
-    margin-right: 60px;
-}
-.nav-pill--faq:hover {
-  filter: drop-shadow(0 0 8px #FE41DB) drop-shadow(0 0 22px rgba(254, 65, 219, 0.6));
-}
-
-.nav-pill.is-active {
-    outline: 3px solid #0d0d0d;
-    outline-offset: 2px;
+    margin-right: 45px;
 }
 
 @media (max-width: 768px) {
@@ -97,19 +75,43 @@
     }
 
     .nav-pill {
-        font-size: 17px;
-        padding: 10px 18px;
+        font-size: 21px;
+        padding: 2px 12px;
     }
 
+    .nav-pill--logo,
     .nav-pill--acts,
     .nav-pill--ticket,
     .nav-pill--gondel,
     .nav-pill--faq {
         margin-right: 0;
     }
+}
 
-    .nav-cart-circle {
-        width: 40px;
-        height: 40px;
+/* Hover-Effekte NUR für Geräte mit Maus-Unterstützung aktivieren */
+@media (hover: hover) {
+    .nav-pill:hover {
+        transform: scale(1.07) translateX(-4px);
+        filter: brightness(1.08);
+    }
+    
+    .nav-pill--logo:hover {
+        filter: drop-shadow(0 0 8px #1AA5D9) drop-shadow(0 0 22px rgba(26, 165, 217, 0.6));
+    }
+    
+    .nav-pill--acts:hover {
+        filter: drop-shadow(0 0 8px #FE41DB) drop-shadow(0 0 22px rgba(254, 65, 219, 0.6));
+    }
+    
+    .nav-pill--ticket:hover {
+        filter: drop-shadow(0 0 8px #32F196) drop-shadow(0 0 22px rgba(50, 241, 150, 0.6));
+    }
+    
+    .nav-pill--gondel:hover {
+        filter: drop-shadow(0 0 8px #F8FF33) drop-shadow(0 0 22px rgba(248, 255, 51, 0.6));
+    }
+    
+    .nav-pill--faq:hover {
+        filter: drop-shadow(0 0 8px #FE41DB) drop-shadow(0 0 22px rgba(254, 65, 219, 0.6));
     }
 }
