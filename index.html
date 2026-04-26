@@ -566,7 +566,14 @@
 
     <script src="script.js"></script>
     <script src="faq-click-effect.js"></script>
-
+<script>
+(function() {
+    const cart = JSON.parse(localStorage.getItem('gondola_cart') || '[]');
+    const count = cart.reduce(function(sum, i) { return sum + (i.qty || 0); }, 0);
+    const badge = document.getElementById('cart-count');
+    if (badge) badge.textContent = count;
+})();
+</script>
 </body>
 
 </html>
