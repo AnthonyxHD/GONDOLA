@@ -219,8 +219,7 @@
     font-family: 'Elza', 'DM Sans', sans-serif;
     font-size: clamp(14px, 1.5vw, 18px);
     line-height: 2;
-    display: inline-block;
-    text-align: left;
+    text-align: center;
 }
 
 .briefing-info li {
@@ -229,6 +228,7 @@
 
 .briefing-label {
     font-weight: 700;
+    color: #FE41DB;
 }
 
 .briefing-title,

@@ -123,6 +123,13 @@
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+.info-block h3 {
+    font-family: please-vf, "Bebas Neue", sans-serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 500;
+    margin: 40px 0 20px;
+}
+
 .info-text:nth-of-type(1) {
     transition-delay: 0.25s;
 }
