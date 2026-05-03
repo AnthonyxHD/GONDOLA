@@ -1,3 +1,12 @@
+/* ============================================
+   NAVIGATION STYLES
+   stylesheets/navigation.css
+   
+   Right-side sticky navigation with color-coded
+   section pills that highlight as user scrolls.
+   Responsive: collapses to bottom center on mobile.
+   ============================================ */
+
 .gondola-nav {
     position: fixed;
     bottom: 36px;
@@ -7,35 +16,39 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
-    pointer-events: none;
+    pointer-events: none; /* Allow clicks to pass through; children override */
 }
 
+/* Individual nav pill button */
 .nav-pill {
     pointer-events: all;
     display: inline-flex;
     align-items: center;
     padding: 5px 20px;
     border-radius: 100px;
-    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-family: var(--font-display);
     font-size: 32px;
     font-weight: 300;
-    color: #0d0d0d;
+    color: var(--color-text);
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
     transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
 }
 
+/* Click feedback */
 .nav-pill:active {
     transform: scale(0.97);
 }
 
+/* Active state: highlight as user scrolls to section */
 .nav-pill.is-active {
     text-transform: uppercase;
 }
 
+/* Color-coded pills for each section */
 .nav-pill--logo {
-    background: #1AA5D9;
+    background: var(--color-sky);
     color: #ffffff;
     border-radius: 200px;
     padding: 5px 20px;
@@ -43,25 +56,26 @@
 }
 
 .nav-pill--acts {
-    background: #FE41DB;
+    background: var(--color-pink);
     margin-right: 105px;
 }
 
 .nav-pill--ticket {
-    background: #32F196;
+    background: var(--color-green);
     margin-right: 70px;
 }
 
 .nav-pill--gondel {
-    background: #F8FF33;
+    background: var(--color-yellow);
     margin-right: 0px;
 }
 
 .nav-pill--faq {
-    background: #FE41DB;
+    background: var(--color-pink);
     margin-right: 45px;
 }
 
+/* Mobile: collapse navigation to bottom center */
 @media (max-width: 768px) {
     .gondola-nav {
         bottom: 20px;
@@ -96,22 +110,22 @@
     }
     
     .nav-pill--logo:hover {
-        filter: drop-shadow(0 0 8px #1AA5D9) drop-shadow(0 0 22px rgba(26, 165, 217, 0.6));
+        filter: drop-shadow(0 0 8px var(--color-sky)) drop-shadow(0 0 22px rgba(26, 165, 217, 0.6));
     }
     
     .nav-pill--acts:hover {
-        filter: drop-shadow(0 0 8px #FE41DB) drop-shadow(0 0 22px rgba(254, 65, 219, 0.6));
+        filter: drop-shadow(0 0 8px var(--color-pink)) drop-shadow(0 0 22px rgba(254, 65, 219, 0.6));
     }
     
     .nav-pill--ticket:hover {
-        filter: drop-shadow(0 0 8px #32F196) drop-shadow(0 0 22px rgba(50, 241, 150, 0.6));
+        filter: drop-shadow(0 0 8px var(--color-green)) drop-shadow(0 0 22px rgba(50, 241, 150, 0.6));
     }
     
     .nav-pill--gondel:hover {
-        filter: drop-shadow(0 0 8px #F8FF33) drop-shadow(0 0 22px rgba(248, 255, 51, 0.6));
+        filter: drop-shadow(0 0 8px var(--color-yellow)) drop-shadow(0 0 22px rgba(248, 255, 51, 0.6));
     }
     
     .nav-pill--faq:hover {
-        filter: drop-shadow(0 0 8px #FE41DB) drop-shadow(0 0 22px rgba(254, 65, 219, 0.6));
+        filter: drop-shadow(0 0 8px var(--color-pink)) drop-shadow(0 0 22px rgba(254, 65, 219, 0.6));
     }
 }

@@ -1,29 +1,15 @@
-/* ═══════════════════════════════════════
-   CART PAGE
-   Design-System orientiert an ticket.css
-   ─────────────────────────────────────
-   Farben:
-     Background    #116EC2
-     Akzent Pink   #FE41DB
-     Akzent Gelb   #F8FF33
-     Akzent Grün   #32F196
-     Akzent Blau   #1AA5D9
-     Dunkel        #0d0d0d
-     Weiss         #ffffff
-   ─────────────────────────────────────
-   Typografie:
-     H1 Titel      please-vf, 900, 64px, lowercase
-     H2            please-display-vf, 500, 48px
-     H3            please-display-vf, 500, 36px
-     H4            please-display-vf, 500, 24px
-     Paragraph     Elza, 400, 18px, lh 1.5
-     Small         Elza, 400, 11px, ls 5px, uppercase
-   ═══════════════════════════════════════ */
+/* ============================================
+   CART PAGE STYLES
+   stylesheets/cart.css
+   
+   Cart page-specific layout and checkout styling.
+   Shared design tokens are defined in style.css.
+   ============================================ */
 
 /* ── Base ── */
 .cart-page,
 .cart-page * {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-weight: 400;
 }
 
@@ -34,7 +20,7 @@
 .cart-page {
     width: 100%;
     min-height: 100vh;
-    background-color: #116EC2;
+    background-color: var(--color-primary);
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -72,7 +58,7 @@
     gap: 8px;
     color: rgba(255,255,255,0.55);
     text-decoration: none;
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 5px;
@@ -80,15 +66,15 @@
     align-self: flex-start;
     transition: color 0.2s;
 }
-.cart-back:hover { color: #F8FF33; }
+.cart-back:hover { color: var(--color-yellow); }
 
-/* H1 — please-vf Heavy 64px lowercase */
+/* H1 — display font Heavy 64px lowercase */
 .cart-title {
-    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(48px, 10vw, 120px);
     font-weight: 500;
     line-height: 1;
-    color: #FE41DB;
+    color: var(--color-pink);
     letter-spacing: -2px;
     text-transform: lowercase;
     margin: 0;
@@ -109,7 +95,7 @@
     color: rgba(255,255,255,0.2);
 }
 .cart-empty__text {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-weight: 400;
     font-size: 18px;
     line-height: 1.5;
@@ -117,9 +103,9 @@
 }
 .cart-empty__btn {
     display: inline-block;
-    background: #FE41DB;
+    background: var(--color-pink);
     color: #000;
-    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-family: var(--font-display);
     font-weight: 300;
     font-size: 22px;
     padding: 12px 32px;
@@ -129,7 +115,7 @@
     letter-spacing: 0.2px;
 }
 .cart-empty__btn:hover {
-    filter: drop-shadow(0 0 3px #FE41DB) drop-shadow(0 0 7px #FE41DB);
+    filter: drop-shadow(0 0 3px var(--color-pink)) drop-shadow(0 0 7px var(--color-pink));
     transform: scale(1.04);
 }
 
@@ -153,9 +139,9 @@
    LEFT COLUMN
    ───────────────────────────────────── */
 
-/* Section title — Elza uppercase tracking (wie ticket-eyebrow) */
+/* Section title — UI font uppercase tracking (wie ticket-eyebrow) */
 .cart-section-title {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 5px;
@@ -166,7 +152,7 @@
 
 /* Items block — weisser Karten-Look wie ticket-card */
 .cart-items-block {
-    background: #0d0d0d;
+    background: var(--color-text);
     border-radius: 24px;
     padding: clamp(20px, 4vw, 36px);
     margin-bottom: 16px;
@@ -196,7 +182,7 @@
 .cart-item__info { flex: 1; }
 
 .cart-item__name {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-weight: 400;
     font-size: 18px;
     line-height: 1.5;
@@ -204,7 +190,7 @@
     margin: 0 0 4px;
 }
 .cart-item__sub {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 4px;
@@ -231,7 +217,7 @@
 .cart-item__qty-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
 
 .cart-item__qty-num {
-    font-family: please-vf, sans-serif;
+    font-family: var(--font-display);
     font-weight: 500;
     font-size: 24px;
     color: #fff;
@@ -241,7 +227,7 @@
 }
 
 .cart-item__price {
-    font-family: please-vf, sans-serif;
+    font-family: var(--font-display);
     font-weight: 500;
     font-size: 28px;
     color: #fff;
@@ -260,7 +246,7 @@
     padding: 4px;
     transition: color 0.2s;
 }
-.cart-item__remove:hover { color: #FE41DB; }
+.cart-item__remove:hover { color: var(--color-pink); }
 
 /* Summary block */
 .cart-summary-block {
@@ -273,7 +259,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 13px;
     font-weight: 400;
     color: rgba(255,255,255,0.8);
@@ -287,7 +273,7 @@
     padding-top: 14px;
 }
 .cart-summary-row--total span:first-child {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 5px;
@@ -295,10 +281,10 @@
     color: rgba(255,255,255,0.55);
 }
 .cart-summary-row--total span:last-child {
-    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(36px, 5vw, 52px);
     font-weight: 500;
-    color: #F8FF33;
+    color: var(--color-yellow);
     letter-spacing: -1px;
     line-height: 1;
 }
@@ -353,7 +339,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 12px;
     font-weight: 400;
     color: rgba(0,0,0,0.5);
@@ -361,9 +347,9 @@
     transition: all 0.3s;
 }
 .cart-step--active .cart-step__num {
-    background: #116EC2;
-    color: #F8FF33;
-    border-color: #116EC2;
+    background: var(--color-primary);
+    color: var(--color-yellow);
+    border-color: var(--color-primary);
 }
 .cart-step--done .cart-step__num {
     background: rgba(0,0,0,0.08);
@@ -372,7 +358,7 @@
 }
 
 .cart-step__label {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 10px;
     font-weight: 400;
     letter-spacing: 3px;
@@ -380,7 +366,7 @@
     color: rgba(0,0,0,0.35);
     white-space: nowrap;
 }
-.cart-step--active .cart-step__label { color: #116EC2; }
+.cart-step--active .cart-step__label { color: var(--color-primary); }
 
 .cart-step__line {
     flex: 1;
@@ -396,7 +382,7 @@
 
 .form-label {
     display: block;
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 10px;
     font-weight: 400;
     letter-spacing: 4px;
@@ -410,27 +396,27 @@
     border: 1px solid rgba(0,0,0,0.12);
     border-radius: 10px;
     padding: 12px 14px;
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 16px;
     font-weight: 400;
-    color: #0d0d0d;
+    color: var(--color-text);
     outline: none;
     transition: border-color 0.2s;
     box-sizing: border-box;
 }
 .form-input::placeholder { color: rgba(0,0,0,0.2); }
-.form-input:focus { border-color: #116EC2; }
-.form-input.error { border-color: #FE41DB; }
+.form-input:focus { border-color: var(--color-primary); }
+.form-input.error { border-color: var(--color-pink); }
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
 .form-error {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #FE41DB;
+    color: var(--color-pink);
     margin-bottom: 10px;
     min-height: 18px;
 }
@@ -461,7 +447,7 @@
     border: 1.5px solid rgba(0,0,0,0.12);
     border-radius: 100px;
     color: rgba(0,0,0,0.4);
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -474,14 +460,14 @@
     transition: all 0.2s;
 }
 .payment-tab:hover {
-    border-color: #116EC2;
-    color: #116EC2;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
 }
 /* Aktiver Tab — wie ticket-date-chip */
 .payment-tab--active {
-    background: #116EC2;
-    border-color: #116EC2;
-    color: #F8FF33;
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-yellow);
 }
 .twint-logo { height: 16px; }
 
@@ -509,7 +495,7 @@
     color: rgba(0,0,0,0.2);
 }
 .twint-qr__label {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 3px;
@@ -524,7 +510,7 @@
     display: block;
     width: 100%;
     text-align: center;
-    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-family: var(--font-display);
     font-weight: 300;
     font-size: 24px;
     letter-spacing: 0.2px;
@@ -541,15 +527,15 @@
 
 /* Primary — pink wie ticket-btn__shape */
 .cart-btn--primary {
-    background: #FE41DB;
+    background: var(--color-pink);
     color: #000000;
 }
 .cart-btn--primary:hover {
-    filter: drop-shadow(0 0 3px #FE41DB) drop-shadow(0 0 7px #FE41DB);
+    filter: drop-shadow(0 0 3px rgba(254, 65, 219, 0.8)) drop-shadow(0 0 7px var(--color-pink));
 }
 /* Secondary — #1AA5D9 */
 .cart-btn--secondary {
-    background: #1AA5D9;
+    background: var(--color-sky);
     color: #ffffff;
     border: none;
     width: auto;
@@ -557,7 +543,7 @@
     font-size: 18px;
 }
 .cart-btn--secondary:hover {
-    filter: drop-shadow(0 0 3px #1AA5D9) drop-shadow(0 0 7px #1AA5D9);
+    filter: drop-shadow(0 0 3px rgba(26, 165, 217, 0.8)) drop-shadow(0 0 7px var(--color-sky));
 }
 
 .checkout-actions {
@@ -573,7 +559,7 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 9px;
     font-weight: 400;
     letter-spacing: 2px;
@@ -588,29 +574,29 @@
 .confirmation__icon {
     width: 60px;
     height: 60px;
-    background: #F8FF33;
+    background: var(--color-yellow);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 22px;
-    color: #0d0d0d;
+    color: var(--color-text);
     margin: 0 auto 20px;
 }
 
 /* H1 — Please Display VF Medium 48px */
 .confirmation__title {
-    font-family: 'please-display-vf', sans-serif;
+    font-family: var(--font-display);
     font-size: 48px;
     font-weight: 500;
     line-height: 1.05;
-    color: #0d0d0d;
+    color: var(--color-text);
     letter-spacing: -1px;
     margin: 0 0 12px;
 }
 
 .confirmation__text {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 14px;
     font-weight: 400;
     line-height: 1.6;
@@ -628,13 +614,13 @@
 .confirmation__row {
     display: flex;
     justify-content: space-between;
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 13px;
     font-weight: 400;
     color: rgba(0,0,0,0.4);
     padding: 5px 0;
 }
-.confirmation__row span:last-child { color: #0d0d0d; }
+.confirmation__row span:last-child { color: var(--color-text); }
 
 /* Total — wie ticket-date-chip */
 .confirmation__row--total {
@@ -643,23 +629,23 @@
     padding-top: 10px;
 }
 .confirmation__row--total span:first-child {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: rgba(0,0,0,0.35);
 }
 .confirmation__row--total span:last-child {
-    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-family: var(--font-display);
     font-size: 36px;
     font-weight: 500;
-    color: #116EC2;
+    color: var(--color-primary);
     letter-spacing: -1px;
     line-height: 1;
 }
 
 /* ── Utility ── */
-.hidden { display: none !important; }
+/* Global utility .hidden is provided by style.css */
 
 .cart-btn--loading { opacity: 0.6; pointer-events: none; }
 .cart-btn--loading::after { content: ' ●●●'; animation: dots 1.2s infinite; }

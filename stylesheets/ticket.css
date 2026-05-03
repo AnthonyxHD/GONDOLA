@@ -1,7 +1,12 @@
+/* ============================================
+   TICKET STYLES
+   stylesheets/ticket.css
+   ============================================ */
+
 .ticket-section {
     width: 100%;
     min-height: 80vh;
-    background-color: #116EC2;
+    background-color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,7 +36,7 @@
 }
 
 .ticket-eyebrow {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 5px;
@@ -41,11 +46,11 @@
 }
 
 .ticket-title {
-    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(48px, 10vw, 120px);
     font-weight: 500;
     line-height: 1;
-    color: #FE41DB;
+    color: var(--color-pink);
     letter-spacing: -2px;
 }
 
@@ -65,7 +70,7 @@
 /* LEFT panel */
 .ticket-card__left {
     flex: 1 1 55%;
-    background: #0d0d0d;
+    background: var(--color-text);
     padding: clamp(28px, 5vw, 48px);
     display: flex;
     flex-direction: column;
@@ -74,9 +79,9 @@
 
 .ticket-badge {
     display: inline-block;
-    background: #F8FF33;
-    color: #0d0d0d;
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    background: var(--color-yellow);
+    color: var(--color-text);
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 4px;
@@ -87,7 +92,7 @@
 }
 
 .ticket-card__name {
-    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(32px, 5vw, 52px);
     font-weight: 500;
     line-height: 1.05;
@@ -104,7 +109,7 @@
 }
 
 .ticket-perks li {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: clamp(13px, 1.5vw, 16px);
     font-weight: 400;
     color: rgba(255, 255, 255, 0.65);
@@ -122,19 +127,19 @@
 }
 
 .perk-dot--yellow {
-    background: #F8FF33;
+    background: var(--color-yellow);
 }
 
 .perk-dot--pink {
-    background: #FE41DB;
+    background: var(--color-pink);
 }
 
 .perk-dot--green {
-    background: #32F196;
+    background: var(--color-green);
 }
 
 .perk-dot--blue {
-    background: #1AA5D9;
+    background: var(--color-sky);
 }
 
 /* Perforated divider */
@@ -154,7 +159,7 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: #116EC2;
+    background: var(--color-primary);
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -182,7 +187,7 @@
 }
 
 .ticket-type-label {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 4px;
@@ -191,7 +196,7 @@
 }
 
 .ticket-fine {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 9px;
     font-weight: 400;
     letter-spacing: 2px;
@@ -207,32 +212,32 @@
 }
 
 .ticket-price__currency {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 16px;
     font-weight: 400;
-    color: #0d0d0d;
+    color: var(--color-text);
 }
 
 .ticket-price__amount {
-    font-family: please-vf, 'Bebas Neue', sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(48px, 7vw, 72px);
     font-weight: 500;
-    color: #0d0d0d;
+    color: var(--color-text);
     letter-spacing: -2px;
     line-height: 1;
 }
 
 .ticket-price__period {
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 14px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.4);
 }
 
 .ticket-date-chip {
-    background: #116EC2;
-    color: #F8FF33;
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    background: var(--color-primary);
+    color: var(--color-yellow);
+    font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -257,20 +262,19 @@
 }
 
 .ticket-btn__shape {
-    fill: #FE41DB;
+    fill: var(--color-pink);
     transition: fill 0.25s ease, filter 0.25s ease;
 }
 
 .ticket-btn:hover .ticket-btn__shape {
-    fill: #FE41DB;
-    filter: drop-shadow(0 0 3px #FE41DB) drop-shadow(0 0 7px #FE41DB);
+    fill: var(--color-pink);
+    filter: drop-shadow(0 0 3px var(--color-pink)) drop-shadow(0 0 7px var(--color-pink));
 }
 
 .ticket-btn__label {
-    font-family: please-vf;
-    font-weight: light;
-    font-size: 32px;
+    font-family: var(--font-display);
     font-weight: 300;
+    font-size: 32px;
     fill: #000000;
     letter-spacing: 0.2px;
     pointer-events: none;
@@ -293,7 +297,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Elza', 'DM Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 13px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.8);
@@ -302,7 +306,7 @@
 }
 
 .ticket-strip__icon {
-    color: #F8FF33;
+    color: var(--color-yellow);
     display: flex;
     align-items: center;
     flex-shrink: 0;

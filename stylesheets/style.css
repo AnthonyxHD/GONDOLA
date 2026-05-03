@@ -1,4 +1,60 @@
 /* ============================================
+   GONDOLA WEBSITE - MAIN STYLESHEET
+   stylesheets/style.css
+   
+   Global styles, reset, and shared components.
+   See other stylesheets for section-specific styles:
+   - navigation.css     → Navigation sidebar
+   - lineup.css         → Artist line-up section
+   - ticket.css         → Ticket purchase section
+   - faq.css            → FAQ + info section
+   - artist.css         → Artist detail pages
+   - cart.css           → Shopping cart page
+   
+   COLOR PALETTE (consolidated):
+   - Blue:      #1AA5D9 (sky), #116EC2 (primary)
+   - Pink:      #FE41DB (accent, headliners)
+   - Yellow:    #F8FF33 (highlight)
+   - Green:     #32F196 (accent)
+   - Cream:     #fff8f0 (section background)
+   - Dark:      #0d0d0d (text)
+   
+   TYPOGRAPHY:
+   - Display:   please-vf, Bebas Neue (brand)
+   - Body:      DM Sans, 'Elza' (content)
+   
+   ANIMATIONS:
+   - Ease:      cubic-bezier(0.22, 1, 0.36, 1)
+   - Duration:  0.6s–0.7s (reveals)
+   ============================================ */
+
+:root {
+    --color-sky: #1AA5D9;
+    --color-primary: #116EC2;
+    --color-pink: #FE41DB;
+    --color-yellow: #F8FF33;
+    --color-green: #32F196;
+    --color-cream: #fff8f0;
+    --color-text: #0d0d0d;
+    --color-text-muted: rgba(0, 0, 0, 0.6);
+    --color-text-body: rgba(0, 0, 0, 0.72);
+    --accent-pink: var(--color-pink);
+    --info-bg: var(--color-cream);
+    --info-title: var(--color-primary);
+    --faq-yellow: var(--color-yellow);
+    --faq-blue: var(--color-sky);
+    --faq-green: var(--color-green);
+    --faq-panel-default: #fffdf0;
+    --faq-panel-blue: #eefaff;
+    --faq-panel-green: #effff8;
+    --radius-lg: 24px;
+    --radius-md: 20px;
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --font-display: please-vf, 'Bebas Neue', sans-serif;
+    --font-ui: 'Elza', 'DM Sans', sans-serif;
+}
+
+/* ============================================
    RESET & GLOBAL
    ============================================ */
 
@@ -26,7 +82,7 @@ body {
 
 
 /* ============================================
-   HERO SECTION (Partnerin – unverändert)
+   HERO SECTION
    ============================================ */
 
 .hero {
@@ -99,7 +155,7 @@ body {
 }
 
 /* ============================================
-   GONDELA / CABLE CARS
+   GONDOLA / CABLE CARS ANIMATION
    ============================================ */
 
 .cable-line {
@@ -155,30 +211,6 @@ body {
         width: clamp(22px, 7vw, 40px);
     }
 }
-
-/* ============================================
-   INFO BLOCK
-   ============================================ */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ============================================
    ANIMATIONS
@@ -260,66 +292,6 @@ body {
     }
 }
 
-
-
-
-
-
-/* ============================================
-   SCROLL-HINWEIS SECTION
-   ============================================ */
-
-.scroll-hint {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    padding: 60px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    text-align: center;
-    z-index: 10;
-}
-
-.scroll-hint h2 {
-    font-size: clamp(28px, 5vw, 48px);
-    font-weight: 900;
-    color: #107DFE;
-    margin-bottom: 16px;
-    letter-spacing: -0.5px;
-}
-
-.scroll-hint p {
-    font-size: clamp(14px, 2vw, 20px);
-    color: #666666;
-    margin-bottom: 40px;
-    max-width: 600px;
-}
-
-.scroll-arrow {
-    margin-top: 20px;
-    color: #107DFE;
-    animation: bounceArrow 2s infinite;
-}
-
-.scroll-arrow svg {
-    display: block;
-}
-
-@keyframes bounceArrow {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(10px);
-    }
-}
-
 /* ============================================
    ANIMATION & EFFECTS
    ============================================ */
@@ -335,14 +307,6 @@ body {
         transform: translateY(0);
     }
 }
-
-/* .hero-info {
-    animation: fadeIn 1s ease-out 0.3s both;
-} */
-
-/* .hero-title {
-    animation: fadeIn 1s ease-out 0.6s both;
-} */
 
 .hero-mountain {
     animation: fadeIn 1.2s ease-out 0.9s both;

@@ -30,51 +30,6 @@
             <a href="#ticket" class="nav-pill nav-pill--ticket">ticket kaufen</a>
             <a href="#steps" class="nav-pill nav-pill--faq">faq's</a>
         </nav>
-        <script>
-            // Warte, bis das HTML vollständig geladen ist
-            document.addEventListener("DOMContentLoaded", function () {
-
-                // 1. Smooth Scrolling
-                document.querySelectorAll('.nav-pill[href^="#"], .nav-cart-circle[href^="#"]').forEach(link => {
-                    link.addEventListener('click', e => {
-                        e.preventDefault();
-                        const target = document.querySelector(link.getAttribute('href'));
-                        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    });
-                });
-
-                // 2. Observer für die aktive Sektion
-                const sections = [
-                    { id: 'hero', pill: '.nav-pill--logo' },
-                    { id: 'lineup', pill: '.nav-pill--acts' },
-                    { id: 'info', pill: '.nav-pill--gondel' },
-                    { id: 'ticket', pill: '.nav-pill--ticket' },
-                    { id: 'steps', pill: '.nav-pill--faq' },
-                ];
-
-                // Der Observer feuert jetzt, sobald eine Sektion die mittlere Zone des Bildschirms betritt
-                const sectionObserver = new IntersectionObserver(entries => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Zuerst bei allen Pills die Klasse entfernen
-                            document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('is-active'));
-
-                            // Dann beim passenden Pill die Klasse hinzufügen
-                            const match = sections.find(s => s.id === entry.target.id);
-                            if (match) document.querySelector(match.pill)?.classList.add('is-active');
-                        }
-                    });
-                }, { rootMargin: "-40% 0px -40% 0px" });
-
-                // Heften des Observers an die Sektionen
-                sections.forEach(s => {
-                    const el = document.getElementById(s.id);
-                    if (el) sectionObserver.observe(el);
-                });
-            });
-        </script>
-
-
     </section>
 
 
@@ -564,14 +519,6 @@
 
     <script src="scripts/script.js"></script>
     <script src="scripts/faq-click-effect.js"></script>
-<script>
-(function() {
-    const cart = JSON.parse(localStorage.getItem('gondola_cart') || '[]');
-    const count = cart.reduce(function(sum, i) { return sum + (i.qty || 0); }, 0);
-    const badge = document.getElementById('cart-count');
-    if (badge) badge.textContent = count;
-})();
-</script>
 </body>
 
 </html>
