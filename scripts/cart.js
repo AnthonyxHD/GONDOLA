@@ -17,21 +17,10 @@ let paymentMethod = 'card'; // 'card' or 'twint'
 
 /**
  * Initialize cart page on load
- * - Set default item if cart is empty
  * - Render cart display
  * - Attach scroll reveal animation
  */
 document.addEventListener('DOMContentLoaded', () => {
-    if (cart.length === 0) {
-        cart = [{
-            id: 'general',
-            name: 'General Entry',
-            date: '22. August 2026',
-            price: TICKET_PRICE,
-            qty: 1
-        }];
-        saveCart();
-    }
     renderCart();
 
     // Attach scroll reveal animation to cart sections
@@ -122,6 +111,27 @@ function changeQty(id, delta) {
  */
 function removeItem(id) {
     cart = cart.filter(i => i.id !== id);
+    saveCart();
+    renderCart();
+}
+
+/**
+ * Add a ticket to the cart
+ * Used when cart is empty to add the default ticket
+ */
+function addTicket() {
+    const existingItem = cart.find(i => i.id === 'general');
+    if (existingItem) {
+        existingItem.qty += 1;
+    } else {
+        cart.push({
+            id: 'general',
+            name: 'General Entry',
+            date: '22. August 2026',
+            price: TICKET_PRICE,
+            qty: 1
+        });
+    }
     saveCart();
     renderCart();
 }
@@ -342,6 +352,3 @@ function updateCartBadge() {
     const badge = document.getElementById('cart-count');
     if (badge) badge.textContent = count;
 }
-
-// Initial badge update
-updateCartBadge();

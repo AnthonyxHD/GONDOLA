@@ -110,9 +110,12 @@
     font-size: 22px;
     padding: 12px 32px;
     border-radius: 100px;
+    border: none;
+    outline: none;
     text-decoration: none;
     transition: filter 0.2s, transform 0.15s;
     letter-spacing: 0.2px;
+    cursor: pointer;
 }
 .cart-empty__btn:hover {
     filter: drop-shadow(0 0 3px var(--color-pink)) drop-shadow(0 0 7px var(--color-pink));

@@ -41,16 +41,16 @@
             </div>
 
             <!-- EMPTY STATE -->
-            <div class="cart-empty" id="cartEmpty">
+            <div class="cart-empty hidden" id="cartEmpty">
                 <div class="cart-empty__icon">
                     <i class="fa fa-shopping-cart"></i>
                 </div>
                 <p class="cart-empty__text">Dein Warenkorb ist leer.</p>
-                <a href="index.html#ticket" class="cart-empty__btn">Tickets kaufen</a>
+                <button onclick="addTicket()" class="cart-empty__btn">Tickets kaufen</button>
             </div>
 
             <!-- CART CONTENT (visible when items exist) -->
-            <div class="cart-content" id="cartContent">
+            <div class="cart-content hidden" id="cartContent">
 
                 <!-- LEFT: Items + Summary -->
                 <div class="cart-left">
